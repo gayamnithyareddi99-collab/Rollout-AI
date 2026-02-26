@@ -410,7 +410,6 @@ document.querySelectorAll(".mobile-menu a").forEach(link=>{
 });
 
 </script>
-<!-- ===== NAVBAR END ===== -->
 <!-- ADVANCED WEBSITE HERO SECTION -->
 <section class="ai-home" id="home">
 
@@ -424,7 +423,7 @@ document.querySelectorAll(".mobile-menu a").forEach(link=>{
     <div class="home-left">
       <h1>
         Predictive Rollout <span>Decision Intelligence</span>
-  <div class="about-line"></div>      
+        <div class="about-line"></div>
       </h1>
 
       <p class="home-sub">
@@ -433,15 +432,13 @@ document.querySelectorAll(".mobile-menu a").forEach(link=>{
         and productivity-aware execution.
       </p>
 
-      <div class="home-buttons">
-        <button class="btn-primary" onclick="scrollToSection('#process')">
-          How It's Works →
-        </button>
+      <button type="button" class="btn-primary" onclick="scrollToSection('contact')">
+   →
+</button>
 
-        <button class="btn-secondary" onclick="scrollToSection('contact')">
-          Book Strategy Call
-        </button>
-      </div>
+<button type="button" class="btn-secondary" onclick="scrollToSection('contact')">
+  Book Strategy Call
+</button>
     </div>
 
     <!-- RIGHT DASHBOARD MOCKUP -->
@@ -449,14 +446,17 @@ document.querySelectorAll(".mobile-menu a").forEach(link=>{
 
       <div class="dashboard-card">
         <h4>Live Rollout Dashboard</h4>
+
         <div class="dashboard-row">
           <span>Active Projects</span>
           <strong>128</strong>
         </div>
+
         <div class="dashboard-row">
           <span>Permit Risk Alerts</span>
           <strong style="color:#ff4d6d;">12</strong>
         </div>
+
         <div class="dashboard-row">
           <span>Optimisation Score</span>
           <strong style="color:#00f5d4;">94%</strong>
@@ -468,7 +468,6 @@ document.querySelectorAll(".mobile-menu a").forEach(link=>{
       <div class="mini-card mini2">AI Risk Forecasting Active</div>
 
     </div>
-
   </div>
 </section>
 
@@ -639,103 +638,31 @@ document.querySelectorAll(".mobile-menu a").forEach(link=>{
 .glow1{ top:-100px; right:-100px; }
 .glow2{ bottom:-100px; left:-100px; }
 
-/* ================================= */
-/* HERO MOBILE FRIENDLY UPGRADE      */
-/* ================================= */
-
+/* MOBILE */
 @media(max-width:768px){
-
-  .ai-home{
-    padding:70px 6%;
-  }
-
-  .home-container{
-    gap:50px;
-  }
-
-  .home-left h1{
-    font-size:28px;
-    line-height:1.3;
-  }
-
-  .home-sub{
-    font-size:15px;
-    line-height:1.6;
-  }
-
-  /* FULL WIDTH BUTTONS */
-  .home-buttons{
-    flex-direction:column;
-    gap:12px;
-  }
-
-  .btn-primary,
-  .btn-secondary{
-    width:100%;
-    padding:14px;
-    font-size:15px;
-  }
-
-  /* DASHBOARD FIX */
-  .dashboard-card{
-    width:100%;
-    max-width:100%;
-    padding:22px;
-    border-radius:16px;
-  }
-
-  .dashboard-card h4{
-    font-size:14px;
-  }
-
-  .dashboard-row{
-    font-size:13px;
-  }
-
-  /* MINI CARDS REPOSITION */
-  .mini1{
-    top:-15px;
-    right:10px;
-  }
-
-  .mini2{
-    bottom:-15px;
-    left:10px;
-  }
-
-  .mini-card{
-    font-size:11px;
-    padding:6px 10px;
-  }
-
-  /* Reduce floating intensity */
-  .dashboard-card{
-    animation:floatMobile 7s ease-in-out infinite;
-  }
-
-  @keyframes floatMobile{
-    0%,100%{transform:translateY(0);}
-    50%{transform:translateY(-6px);}
-  }
-
-  .mini-card{
-    animation:floatMiniMobile 8s ease-in-out infinite;
-  }
-
-  @keyframes floatMiniMobile{
-    0%,100%{transform:translateY(0);}
-    50%{transform:translateY(-4px);}
-  }
-
+  .ai-home{ padding:70px 6%; }
+  .home-container{ gap:50px; }
+  .home-left h1{ font-size:28px; line-height:1.3; }
+  .home-sub{ font-size:15px; }
+  .home-buttons{ flex-direction:column; gap:12px; }
+  .btn-primary,.btn-secondary{ width:100%; padding:14px; font-size:15px; }
+  .dashboard-card{ width:100%; padding:22px; border-radius:16px; }
 }
 </style>
 
 <script>
-function scrollToSection(id){
-  const section = document.getElementById(id);
-  if(section){
-    section.scrollIntoView({behavior:"smooth"});
+function scrollToSection(id) {
+  const element = document.getElementById(id);
+
+  if (!element) {
+    console.error("Section not found:", id);
+    return;
   }
+
+  window.scrollTo({
+    top: element.offsetTop - 20,
+    behavior: "smooth"
+  });
 }
 </script>
 <section class="about-rollout" id="about">
@@ -1246,7 +1173,7 @@ document.querySelector(".about-btn").addEventListener("click",function(){
 
       <!-- CARD 5 -->
       <div class="feature-card">
-        <img src="ak5" alt="">
+        <img src="ak5.jpeg" alt="">
         <h4>Risk Forecasting</h4>
         <p class="short-text">AI delay prediction engine.</p>
         <p class="more-text">Machine learning models predicting permit rejections, traffic conflicts, weather disruptions and execution bottlenecks.</p>
@@ -1255,7 +1182,7 @@ document.querySelector(".about-btn").addEventListener("click",function(){
 
       <!-- CARD 6 -->
       <div class="feature-card">
-        <img src="ak6" alt="">
+        <img src="ak6.jpeg" alt="">
         <h4>Authority Integration</h4>
         <p class="short-text">350+ UK councils connected.</p>
         <p class="more-text">Automated integration with authority datasets ensuring compliance, scheduling coordination and reduced rework.</p>
@@ -1264,7 +1191,7 @@ document.querySelector(".about-btn").addEventListener("click",function(){
 
       <!-- CARD 7 -->
       <div class="feature-card">
-        <img src="ak7" alt="">
+        <img src="ak7.jpeg" alt="">
         <h4>Resource Allocation AI</h4>
         <p class="short-text">Optimised crew planning.</p>
         <p class="more-text">Predictive crew distribution models balancing productivity, council restrictions and equipment efficiency.</p>
@@ -1273,7 +1200,7 @@ document.querySelector(".about-btn").addEventListener("click",function(){
 
       <!-- CARD 8 -->
       <div class="feature-card">
-        <img src="ak8" alt="">
+        <img src="ak8.jpeg" alt="">
         <h4>Data Unification Layer</h4>
         <p class="short-text">Centralised infrastructure data.</p>
         <p class="more-text">Combines PIA datasets, permit feeds, GIS layers and contractor benchmarks into one optimisation engine.</p>
@@ -1282,7 +1209,7 @@ document.querySelector(".about-btn").addEventListener("click",function(){
 
       <!-- CARD 9 -->
       <div class="feature-card">
-        <img src="ak9" alt="">
+        <img src="ak9.jpeg" alt="">
         <h4>Executive Dashboard</h4>
         <p class="short-text">Programme-wide visibility.</p>
         <p class="more-text">Real-time performance tracking, disruption scoring and predictive KPI monitoring for national rollout programmes.</p>
@@ -2761,14 +2688,12 @@ faqCards.forEach(card=>{
 function openMail(){
     const subject = encodeURIComponent("Rollout AI – Strategic Demo Request");
     const body = encodeURIComponent(
-        "Hello Rollout AI Team,%0D%0A%0D%0A" +
-        "We would like to schedule a strategic AI demo to explore rollout optimisation capabilities.%0D%0A%0D%0A" +
-        "Please share available slots.%0D%0A%0D%0A" +
-        "Kind regards,"
+        "Hello Rollout AI Team, 
+        
     );
 
     window.location.href =
-        "mailto:info@rolloutai.co.uk?subject=" + subject + "&body=" + body;
+        "mailtorolloutai@outlook.com?subject=" + subject + "&body=" + body;
 }
 </script>
 
