@@ -219,10 +219,13 @@ footer{
 <nav>
     <div class="logo">Rollout <span>AI</span></div>
     <div class="menu">
-        <a href="#about">About</a>
-        <a href="#features">Features</a>
-        <a href="#market">Market</a>
-        <a href="#contact">Contact</a>
+        <a href="#hero">Hero</a>
+    <a href="#about">About</a>
+    <a href="#features">Features</a>
+    <a href="#process">Process</a>
+    <a href="#founder">Founder</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Contact</a>
     </div>
 </nav>
 <!-- ===== NAVBAR START ===== -->
@@ -232,11 +235,13 @@ footer{
 
     <!-- Desktop Menu -->
     <div class="menu" id="desktopMenu">
-        <a href="#about">About</a>
-        <a href="#features">Features</a>
-        <a href="#market">Market</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#contact">Contact</a>
+        <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#features">Features</a>
+    <a href="#process">Process</a>
+    <a href="#founder">Founder</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Contact</a>
     </div>
 
     <!-- Mobile Hamburger -->
@@ -250,10 +255,12 @@ footer{
 
 <!-- Mobile Dropdown Menu -->
 <div class="mobile-menu" id="mobileMenu">
+    <a href="#hero">Hero</a>
     <a href="#about">About</a>
     <a href="#features">Features</a>
-    <a href="#market">Market</a>
-    <a href="#pricing">Pricing</a>
+    <a href="#process">Process</a>
+    <a href="#founder">Founder</a>
+    <a href="#faq">FAQ</a>
     <a href="#contact">Contact</a>
 </div>
 
@@ -427,8 +434,8 @@ document.querySelectorAll(".mobile-menu a").forEach(link=>{
       </p>
 
       <div class="home-buttons">
-        <button class="btn-primary" onclick="scrollToSection('pricing')">
-          Explore Licensing →
+        <button class="btn-primary" onclick="scrollToSection('#process')">
+          How It's Works →
         </button>
 
         <button class="btn-secondary" onclick="scrollToSection('contact')">
@@ -772,7 +779,6 @@ function scrollToSection(id){
       </p>
 
       <div class="about-actions">
-        <button class="about-btn">Explore Platform</button>
         <span class="about-metric">Serving Fibre & Utilities Operators Across the UK</span>
       </div>
 
@@ -2122,7 +2128,7 @@ document.querySelector(".founder-btn").addEventListener("click",function(){
 });
 </script>
 
-<section class="ai-faq-ultimate">
+<section id="faq" class="ai-faq-ultimate">
 
     <div class="faq-wrapper">
 
@@ -2790,11 +2796,12 @@ function scrollToContact(){
 
         <!-- CENTER -->
         <div class="footer-links">
-            <a href="#">Home</a>
-            <a href="#">Platform</a>
-            <a href="#">Pricing</a>
-            <a href="#">FAQ</a>
-            <a href="#">Contact</a>
+             <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#features">Features</a>
+    <a href="#process">Process</a>
+    <a href="#founder">Founder</a>
+    <a href="#faq">FAQ</a>
         </div>
 
         <!-- RIGHT -->
