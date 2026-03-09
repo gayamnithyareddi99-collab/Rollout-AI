@@ -1,213 +1,284 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rollout AI | Predictive Infrastructure Intelligence</title>
+
+<title>Rollout AI Platform</title>
 
 <style>
 
-/* ===== GLOBAL ===== */
+/* RESET */
+
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family: 'Segoe UI', sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI, sans-serif;
+scroll-behavior:smooth;
 }
 
-body{
-    background:#0f172a;
-    color:#fff;
-    scroll-behavior:smooth;
-}
+/* COLORS */
 
 :root{
-    --primary:#2563eb;
-    --secondary:#9333ea;
-    --dark:#0f172a;
-    --layer:#1e293b;
-    --text:#cbd5e1;
+--primary:#4F46E5;
+--secondary:#7C3AED;
+--accent:#EC4899;
+--text:#0F172A;
+--bg:#F8FAFC;
 }
 
-/* ===== NAVBAR ===== */
-nav{
-    position:fixed;
-    width:100%;
-    top:0;
-    background:rgba(15,23,42,0.95);
-    backdrop-filter:blur(8px);
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:18px 8%;
-    z-index:1000;
-    border-bottom:1px solid rgba(255,255,255,0.08);
-}
+/* HERO */
 
-.logo{
-    font-size:20px;
-    font-weight:bold;
-}
-
-.logo span{
-    color:var(--primary);
-}
-
-.menu{
-    display:flex;
-    gap:25px;
-}
-
-.menu a{
-    text-decoration:none;
-    color:#fff;
-    font-size:14px;
-    transition:0.3s;
-}
-
-.menu a:hover{
-    color:var(--primary);
-}
-
-/* ===== HERO ===== */
 .hero{
-    padding:140px 8% 100px;
-    display:flex;
-    flex-wrap:wrap;
-    align-items:center;
-    gap:50px;
+padding:160px 8%;
+background:var(--bg);
 }
 
-.hero-left{
-    flex:1;
-    min-width:300px;
+.hero-container{
+max-width:1100px;
+margin:auto;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:60px;
+align-items:center;
 }
 
-.hero-left h1{
-    font-size:42px;
-    line-height:1.3;
-    margin-bottom:20px;
+.hero h1{
+font-size:44px;
+color:var(--text);
+margin-bottom:20px;
 }
 
-.hero-left span{
-    background:linear-gradient(90deg,var(--primary),var(--secondary));
-    -webkit-background-clip:text;
-    color:transparent;
+.hero p{
+color:#555;
+line-height:1.7;
+margin-bottom:25px;
 }
 
-.hero-left p{
-    color:var(--text);
-    margin-bottom:30px;
-    font-size:15px;
-    line-height:1.7;
+.hero-buttons{
+display:flex;
+gap:15px;
 }
 
-.hero-btn{
-    padding:14px 30px;
-    background:linear-gradient(90deg,var(--primary),var(--secondary));
-    border:none;
-    color:#fff;
-    font-weight:600;
-    cursor:pointer;
-    border-radius:6px;
-    transition:0.3s;
+.btn{
+padding:12px 24px;
+border-radius:6px;
+text-decoration:none;
+font-weight:600;
 }
 
-.hero-btn:hover{
-    opacity:0.85;
+.btn-primary{
+background:var(--primary);
+color:white;
 }
 
-/* ===== SECTION ===== */
-section{
-    padding:100px 8%;
+.btn-secondary{
+border:1px solid var(--primary);
+color:var(--primary);
+}
+
+.hero img{
+width:100%;
+}
+
+/* PLATFORM */
+
+.platform{
+padding:120px 8%;
+background:white;
 }
 
 .section-title{
-    font-size:32px;
-    margin-bottom:20px;
+text-align:center;
+font-size:34px;
+margin-bottom:10px;
 }
 
-.section-title span{
-    color:var(--primary);
+.section-sub{
+text-align:center;
+color:#666;
+margin-bottom:50px;
 }
 
-.section-desc{
-    color:var(--text);
-    margin-bottom:50px;
-    max-width:700px;
+.platform-grid{
+max-width:1100px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:30px;
 }
 
-/* ===== FEATURES ===== */
-.features{
-    display:flex;
-    flex-wrap:wrap;
-    gap:30px;
+.platform-card{
+background:#f9fafb;
+padding:25px;
+border-radius:10px;
+text-align:center;
+transition:.3s;
 }
 
-.card{
-    background:var(--layer);
-    padding:30px;
-    flex:1;
-    min-width:260px;
-    border-radius:8px;
-    border:1px solid rgba(255,255,255,0.05);
-    transition:0.3s;
+.platform-card:hover{
+transform:translateY(-6px);
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
 }
 
-.card:hover{
-    transform:translateY(-5px);
-    border:1px solid var(--primary);
+.platform-img{
+width:100%;
+height:160px;
+object-fit:contain;
+margin-bottom:15px;
 }
 
-.card h3{
-    margin-bottom:15px;
-    color:var(--primary);
+/* PROCESS */
+
+.process{
+padding:120px 8%;
+background:#f9fafb;
 }
 
-.card p{
-    font-size:14px;
-    color:var(--text);
+.process-grid{
+max-width:1100px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:30px;
+text-align:center;
 }
 
-/* ===== CTA ===== */
-.cta{
-    text-align:center;
-    background:linear-gradient(90deg,var(--primary),var(--secondary));
-    padding:80px 20px;
+.process img{
+width:100%;
+height:150px;
+object-fit:contain;
+margin-bottom:10px;
 }
 
-.cta h2{
-    font-size:30px;
-    margin-bottom:20px;
+/* PRICING */
+
+.pricing{
+padding:120px 8%;
+background:white;
 }
 
-.cta button{
-    padding:14px 30px;
-    background:#fff;
-    color:#000;
-    border:none;
-    font-weight:600;
-    cursor:pointer;
-    border-radius:6px;
+.pricing-grid{
+max-width:1100px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:30px;
 }
 
-/* ===== FOOTER ===== */
-footer{
-    background:#111827;
-    padding:30px 8%;
-    text-align:center;
-    color:#94a3b8;
-    font-size:14px;
+.price-card{
+border:1px solid #eee;
+padding:35px;
+border-radius:10px;
+text-align:center;
 }
 
-/* ===== MOBILE ===== */
+.price-card h3{
+margin-bottom:10px;
+}
+
+.price-card ul{
+list-style:none;
+margin:20px 0;
+}
+
+.price-card li{
+margin:8px 0;
+color:#555;
+}
+
+/* FAQ */
+
+.faq{
+padding:120px 8%;
+background:black;
+color:white;
+}
+
+.faq-container{
+max-width:800px;
+margin:auto;
+}
+
+.faq-item{
+border-bottom:1px solid #333;
+padding:18px 0;
+}
+
+.faq-question{
+display:flex;
+justify-content:space-between;
+cursor:pointer;
+}
+
+.faq-answer{
+display:none;
+color:#ccc;
+margin-top:8px;
+}
+
+/* CONTACT */
+
+.contact{
+padding:120px 8%;
+background:white;
+}
+
+.contact-container{
+max-width:1000px;
+margin:auto;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:50px;
+}
+
+.contact input,
+.contact textarea{
+width:100%;
+padding:12px;
+margin-bottom:15px;
+border:1px solid #ddd;
+border-radius:6px;
+}
+
+/* FOOTER */
+
+.footer{
+background:#111;
+color:#aaa;
+padding:20px;
+text-align:center;
+}
+
+/* MOBILE */
+
 @media(max-width:900px){
-    .hero{
-        flex-direction:column;
-        text-align:center;
-    }
-    .menu{
-        display:none;
-    }
+
+.nav-links{
+display:none;
+position:absolute;
+top:60px;
+left:0;
+width:100%;
+background:white;
+flex-direction:column;
+padding:20px;
+}
+
+.menu-btn{
+display:block;
+}
+
+.hero-container,
+.platform-grid,
+.process-grid,
+.pricing-grid,
+.contact-container{
+grid-template-columns:1fr;
+}
+
 }
 
 </style>
@@ -215,2686 +286,1939 @@ footer{
 
 <body>
 
+
 <!-- NAVBAR -->
-<nav>
-    <div class="logo">Rollout <span>AI</span></div>
-    <div class="menu">
-        <a href="#hero">Hero</a>
-    <a href="#about">About</a>
-    <a href="#features">Features</a>
-    <a href="#process">Process</a>
-    <a href="#founder">Founder</a>
-    <a href="#faq">FAQ</a>
-    <a href="#contact">Contact</a>
-    </div>
-</nav>
-<!-- ===== NAVBAR START ===== -->
-<nav class="navbar">
 
-    <div class="logo">Rollout <span>AI</span></div>
+<header class="navbar">
 
-    <!-- Desktop Menu -->
-    <div class="menu" id="desktopMenu">
-        <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#features">Features</a>
-    <a href="#process">Process</a>
-    <a href="#founder">Founder</a>
-    <a href="#faq">FAQ</a>
-    <a href="#contact">Contact</a>
-    </div>
+<div class="nav-container">
 
-    <!-- Mobile Hamburger -->
-    <div class="hamburger" id="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
+<div class="logo">Rollout AI</div>
 
-</nav>
+<div class="nav-links" id="navLinks">
 
-<!-- Mobile Dropdown Menu -->
-<div class="mobile-menu" id="mobileMenu">
-    <a href="#hero">Hero</a>
-    <a href="#about">About</a>
-    <a href="#features">Features</a>
-    <a href="#process">Process</a>
-    <a href="#founder">Founder</a>
-    <a href="#faq">FAQ</a>
-    <a href="#contact">Contact</a>
+<a href="#home">Home</a>
+<a href="#platform">Platform</a>
+<a href="#process">How It Works</a>
+<a href="#pricing">Pricing</a>
+<a href="#faq">FAQ</a>
+<a href="#contact">Contact</a>
+
 </div>
+
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+</div>
+
+</header>
+<header class="navbar">
+
+<div class="nav-container">
+
+<div class="logo">Rollout AI</div>
+
+<nav id="navMenu">
+
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#process">Process</a>
+<a href="#platform">Platform</a>
+<a href="#pricing">Pricing</a>
+<a href="#faq">FAQ</a>
+<a href="#contact">Contact</a>
+
+</nav>
+
+<div class="menu-toggle" id="menuToggle">
+<span></span>
+<span></span>
+<span></span>
+</div>
+
+</div>
+
+</header>
+
+
 
 <style>
 
-/* ===== NAVBAR ===== */
+/* NAVBAR */
+
 .navbar{
-    position:fixed;
-    width:100%;
-    top:0;
-    left:0;
-    background:rgba(15,23,42,0.95);
-    backdrop-filter:blur(10px);
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:18px 8%;
-    z-index:1000;
-    border-bottom:1px solid rgba(255,255,255,0.08);
+width:100%;
+background:#c06459;
+padding:11px 8%;
+position:fixed;
+top:0;
+left:0;
+z-index:1000;
+font-family:'Segoe UI',sans-serif;
+box-shadow:0 3px 15px rgba(0,0,0,0.15);
 }
+
+/* CONTAINER */
+
+.nav-container{
+max-width:1200px;
+margin:auto;
+display:flex;
+align-items:center;
+justify-content:space-between;
+}
+
+/* LOGO */
 
 .logo{
-    font-size:20px;
-    font-weight:bold;
-    color:#fff;
+font-size:22px;
+font-weight:700;
+color:white;
 }
 
-.logo span{
-    color:#2563eb;
+/* NAV LINKS */
+
+#navMenu{
+display:flex;
+gap:35px;
+align-items:center;
 }
 
-/* Desktop Menu */
-.menu{
-    display:flex;
-    gap:28px;
+/* LINKS */
+
+#navMenu a{
+text-decoration:none;
+color:white;
+font-size:15px;
+font-weight:500;
+position:relative;
 }
 
-.menu a{
-    text-decoration:none;
-    color:#fff;
-    font-size:14px;
-    transition:0.3s;
-    position:relative;
+/* HOVER UNDERLINE */
+
+#navMenu a::after{
+content:"";
+position:absolute;
+left:0;
+bottom:-5px;
+width:0%;
+height:2px;
+background:white;
+transition:0.3s;
 }
 
-.menu a::after{
-    content:"";
-    position:absolute;
-    bottom:-5px;
-    left:0;
-    width:0%;
-    height:2px;
-    background:#2563eb;
-    transition:0.3s;
+#navMenu a:hover::after{
+width:100%;
 }
 
-.menu a:hover::after{
-    width:100%;
+/* HAMBURGER */
+
+.menu-toggle{
+display:none;
+flex-direction:column;
+gap:5px;
+cursor:pointer;
 }
 
-/* Hamburger */
-.hamburger{
-    display:none;
-    flex-direction:column;
-    gap:6px;
-    cursor:pointer;
+.menu-toggle span{
+width:25px;
+height:3px;
+background:white;
+display:block;
 }
 
-.hamburger span{
-    width:25px;
-    height:3px;
-    background:#fff;
-    transition:0.3s;
-}
+/* MOBILE */
 
-/* Hamburger Animation */
-.hamburger.active span:nth-child(1){
-    transform:rotate(45deg) translate(5px,5px);
-}
-.hamburger.active span:nth-child(2){
-    opacity:0;
-}
-.hamburger.active span:nth-child(3){
-    transform:rotate(-45deg) translate(6px,-6px);
-}
-
-/* Mobile Menu */
-.mobile-menu{
-    position:fixed;
-    top:70px;
-    left:0;
-    width:100%;
-    background:#1e293b;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:25px;
-    padding:30px 0;
-    transform:translateY(-150%);
-    transition:0.4s ease;
-    z-index:999;
-}
-
-.mobile-menu a{
-    text-decoration:none;
-    color:#fff;
-    font-size:16px;
-    transition:0.3s;
-}
-
-.mobile-menu a:hover{
-    color:#2563eb;
-}
-
-.mobile-menu.active{
-    transform:translateY(0);
-}
-
-/* ===== RESPONSIVE ===== */
 @media(max-width:900px){
-    .menu{
-        display:none;
-    }
-    .hamburger{
-        display:flex;
-    }
+
+#navMenu{
+position:absolute;
+top:70px;
+left:0;
+width:100%;
+background:#c06459;
+flex-direction:column;
+padding:25px 0;
+gap:20px;
+display:none;
+}
+
+#navMenu.active{
+display:flex;
+}
+
+.menu-toggle{
+display:flex;
+}
+
 }
 
 </style>
 
+
+
 <script>
 
-const hamburger = document.getElementById("hamburger");
-const mobileMenu = document.getElementById("mobileMenu");
+const toggle = document.getElementById("menuToggle");
+const menu = document.getElementById("navMenu");
 
-hamburger.addEventListener("click",()=>{
-    hamburger.classList.toggle("active");
-    mobileMenu.classList.toggle("active");
+/* OPEN CLOSE MENU */
+
+toggle.addEventListener("click",()=>{
+menu.classList.toggle("active");
 });
 
-/* Close mobile menu when clicking link */
-document.querySelectorAll(".mobile-menu a").forEach(link=>{
-    link.addEventListener("click",()=>{
-        hamburger.classList.remove("active");
-        mobileMenu.classList.remove("active");
-    });
+/* CLOSE MENU WHEN LINK CLICKED */
+
+document.querySelectorAll("#navMenu a").forEach(link=>{
+
+link.addEventListener("click",()=>{
+
+menu.classList.remove("active");
+
+});
+
+});
+
+/* SMOOTH SCROLL */
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
+
+anchor.addEventListener("click",function(e){
+
+e.preventDefault();
+
+document.querySelector(this.getAttribute("href")).scrollIntoView({
+behavior:"smooth"
+});
+
+});
+
 });
 
 </script>
 <section class="hero-section" id="home">
 
-  <!-- Background Moving Light -->
-  <div class="hero-light"></div>
+<div class="hero-container">
 
-  <div class="hero-container">
+<!-- LEFT TEXT -->
 
-    <span class="hero-tag">AI Infrastructure Intelligence</span>
+<div class="hero-left">
 
-    <h1>
-      Predictive <span>Rollout Optimisation</span><br>
-      for National Infrastructure
-    </h1>
+<h1>AI-Powered Campaign Deployment Platform</h1>
 
-    <div class="hero-line"></div>
+<p class="hero-text">
+Rollout AI helps businesses plan, launch and optimize
+marketing campaigns using intelligent automation and
+real-time analytics. The platform simplifies campaign
+operations so teams can focus on strategy, creativity
+and scalable business growth.
+</p>
 
-    <p class="hero-description">
-      Rollout AI is a UK-based predictive decision platform transforming
-      fibre, utilities and streetworks delivery through intelligent
-      route sequencing, permit intelligence and productivity-aware planning.
-    </p>
+<div class="hero-buttons">
 
-    <div class="hero-stats">
-      <div class="stat">
-        <h3>20–30%</h3>
-        <span>Faster Deployment</span>
-      </div>
+<a href="#platform" class="btn-primary">Explore Platform</a>
 
-      <div class="stat">
-        <h3>350+</h3>
-        <span>UK Authorities Integrated</span>
-      </div>
+<a href="#contact" class="btn-secondary">Get Started</a>
 
-      <div class="stat">
-        <h3>AI-Driven</h3>
-        <span>Risk Forecasting Engine</span>
-      </div>
-    </div>
-
-  </div>
-
-</section>
-
-<style>
-:root{
-  --blue:#0f62fe;
-  --purple:#5f2eea;
-}
-
-/* SECTION */
-.hero-section{
-  min-height:100vh;
-  background:#0e1629;
-  color:#fff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:0 8%;
-  position:relative;
-  overflow:hidden;
-}
-
-/* Moving Light Effect */
-.hero-light{
-  position:absolute;
-  width:800px;
-  height:800px;
-  background:radial-gradient(circle,rgba(95,46,234,0.15),transparent 70%);
-  animation:moveLight 8s ease-in-out infinite;
-  filter:blur(120px);
-}
-
-@keyframes moveLight{
-  0%{transform:translate(-100px,-100px);}
-  50%{transform:translate(100px,80px);}
-  100%{transform:translate(-100px,-100px);}
-}
-
-.hero-container{
-  max-width:900px;
-  text-align:center;
-  position:relative;
-  z-index:2;
-}
-
-.hero-tag{
-  font-size:13px;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  color:#94a3b8;
-}
-
-.hero-container h1{
-  font-size:64px;
-  line-height:1.2;
-  margin:25px 0;
-}
-
-.hero-container span{
-  background:linear-gradient(90deg,var(--blue),var(--purple));
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-
-/* Animated Line */
-.hero-line{
-  width:120px;
-  height:3px;
-  margin:20px auto 30px;
-  background:linear-gradient(90deg,var(--blue),var(--purple));
-  animation:lineMove 3s linear infinite;
-}
-
-@keyframes lineMove{
-  0%{width:40px;}
-  50%{width:160px;}
-  100%{width:40px;}
-}
-
-.hero-description{
-  font-size:18px;
-  color:#cbd5e1;
-  line-height:1.9;
-  max-width:700px;
-  margin:auto;
-}
-
-/* STATS */
-.hero-stats{
-  display:flex;
-  justify-content:center;
-  gap:60px;
-  margin-top:70px;
-  flex-wrap:wrap;
-}
-
-.stat{
-  text-align:center;
-}
-
-.stat h3{
-  font-size:28px;
-  margin-bottom:8px;
-  background:linear-gradient(90deg,var(--blue),var(--purple));
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-
-.stat span{
-  font-size:14px;
-  color:#94a3b8;
-}
-/* ===== MOBILE OPTIMIZATION ===== */
-@media(max-width:900px){
-
-  .hero-section{
-    padding:120px 6% 80px;
-    min-height:auto;
-  }
-
-  .hero-container{
-    max-width:100%;
-  }
-
-  .hero-container h1{
-    font-size:36px;
-    line-height:1.3;
-  }
-
-  .hero-line{
-    margin:18px auto 25px;
-  }
-
-  .hero-description{
-    font-size:15px;
-    line-height:1.7;
-    padding:0 5px;
-  }
-
-  .hero-stats{
-    flex-direction:column;
-    gap:30px;
-    margin-top:50px;
-  }
-
-  .stat h3{
-    font-size:22px;
-  }
-
-  .stat span{
-    font-size:13px;
-  }
-
-  .hero-light{
-    width:500px;
-    height:500px;
-  }
-
-}
-</style>
-<section class="about-rollout" id="about">
-
-  <!-- background glow shapes -->
-  <div class="bg-shape shape1"></div>
-  <div class="bg-shape shape2"></div>
-
-  <div class="about-container">
-
-    <!-- LEFT SIDE CONTENT -->
-    <div class="about-left">
-
-      <span class="about-tag">AI Infrastructure Intelligence</span>
-
-      <h2>
-        About <span>Rollout AI</span>
-      </h2>
-
-      <!-- KEEP THIS LINE EXACTLY -->
-      <div class="about-line"></div>
-
-      <p>
-        Rollout AI is a UK-based AI-driven SaaS platform transforming fibre,
-        utilities, and streetworks infrastructure delivery through predictive
-        decision intelligence.
-      </p>
-
-      <p>
-        Powered by the proprietary <strong>Rollout Intelligence Engine (RIE)</strong>,
-        the platform integrates Street Manager permit feeds, PIA datasets,
-        subcontractor productivity benchmarks, and council-specific constraints
-        into one unified optimisation engine.
-      </p>
-
-      <p>
-        By replacing static planning with probability-weighted optimisation,
-        Rollout AI enables operators to reduce delays, prevent repeat excavations,
-        improve regulatory compliance, and accelerate national infrastructure
-        rollouts by 20–30%.
-      </p>
-
-      <div class="about-actions">
-        <span class="about-metric">Serving Fibre & Utilities Operators Across the UK</span>
-      </div>
-
-    </div>
-
-    <!-- RIGHT PREMIUM CARD -->
-    <div class="about-right">
-
-      <div class="premium-card">
-
-        <div class="card-top">
-          <h3>20–30%</h3>
-          <p>Faster Infrastructure Delivery</p>
-        </div>
-
-        <div class="card-divider"></div>
-
-        <div class="card-features">
-          <div>✔ Predictive Route Optimisation</div>
-          <div>✔ Automated Permit Clash Detection</div>
-          <div>✔ Subcontractor Productivity Benchmarking</div>
-          <div>✔ Scenario-Based Rollout Simulation</div>
-        </div>
-
-        <div class="card-bottom">
-          350+ UK Authorities Integrated
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-<style>
-:root{
-  --blue:#0f62fe;
-  --purple:#5f2eea;
-}
-
-/* SECTION */
-.about-rollout{
-  padding:160px 8%;
-  background:#0b1220;
-  color:#fff;
-  position:relative;
-  overflow:hidden;
-}
-
-/* BACKGROUND SHAPES */
-.bg-shape{
-  position:absolute;
-  width:400px;
-  height:400px;
-  border-radius:50%;
-  filter:blur(120px);
-  opacity:0.15;
-}
-
-.shape1{
-  background:var(--purple);
-  top:-150px;
-  right:-150px;
-}
-
-.shape2{
-  background:var(--blue);
-  bottom:-150px;
-  left:-150px;
-}
-
-/* LAYOUT */
-.about-container{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:120px;
-  flex-wrap:wrap;
-  position:relative;
-  z-index:2;
-}
-
-/* LEFT */
-.about-left{
-  flex:1;
-  min-width:320px;
-}
-
-.about-tag{
-  font-size:12px;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  color:#94a3b8;
-}
-
-.about-left h2{
-  font-size:52px;
-  margin-top:10px;
-}
-
-.about-left span{
-  background:linear-gradient(90deg,var(--blue),var(--purple));
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-
-/* KEEP ORIGINAL LINE */
-.about-line{
-  width:110px;
-  height:3px;
-  margin:18px 0 30px;
-  background:linear-gradient(90deg,var(--blue),var(--purple));
-  animation:lineMove 3s linear infinite;
-}
-
-@keyframes lineMove{
-  0%{width:40px;}
-  50%{width:150px;}
-  100%{width:40px;}
-}
-
-.about-left p{
-  font-size:17px;
-  color:#cbd5e1;
-  line-height:1.9;
-  margin-bottom:22px;
-  max-width:650px;
-}
-
-/* ACTIONS */
-.about-actions{
-  margin-top:35px;
-}
-
-.about-btn{
-  padding:16px 40px;
-  border:none;
-  border-radius:8px;
-  background:linear-gradient(90deg,var(--blue),var(--purple));
-  color:#fff;
-  font-weight:600;
-  cursor:pointer;
-  transition:0.3s;
-}
-
-.about-btn:hover{
-  transform:translateY(-4px);
-  box-shadow:0 20px 40px rgba(95,46,234,0.4);
-}
-
-.about-metric{
-  display:block;
-  margin-top:15px;
-  font-size:14px;
-  color:#94a3b8;
-}
-
-/* RIGHT CARD */
-.about-right{
-  flex:1;
-  min-width:320px;
-  display:flex;
-  justify-content:center;
-}
-
-.premium-card{
-  width:420px;
-  padding:45px;
-  border-radius:28px;
-  background:rgba(255,255,255,0.05);
-  backdrop-filter:blur(20px);
-  border:1px solid rgba(255,255,255,0.08);
-  box-shadow:0 40px 80px rgba(0,0,0,0.6);
-  transition:0.4s;
-}
-
-.premium-card:hover{
-  transform:translateY(-10px);
-}
-
-.card-top h3{
-  font-size:48px;
-  margin-bottom:8px;
-  background:linear-gradient(90deg,var(--blue),var(--purple));
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-
-.card-top p{
-  color:#cbd5e1;
-  font-size:15px;
-}
-
-.card-divider{
-  height:1px;
-  background:rgba(255,255,255,0.1);
-  margin:30px 0;
-}
-
-.card-features div{
-  font-size:14px;
-  margin-bottom:14px;
-  color:#e2e8f0;
-}
-
-.card-bottom{
-  margin-top:30px;
-  font-size:13px;
-  color:#94a3b8;
-}
-
- /* ================================= */
-/* ABOUT SECTION MOBILE OPTIMIZATION */
-/* ================================= */
-
-@media(max-width:768px){
-
-  .about-rollout{
-    padding:80px 6%;
-  }
-
-  .about-container{
-    gap:60px;
-  }
-
-  .about-left h2{
-    font-size:28px;
-    line-height:1.4;
-  }
-
-  .about-left p{
-    font-size:15px;
-    line-height:1.7;
-  }
-
-  .about-tag{
-    font-size:11px;
-  }
-
-  .about-line{
-    margin:15px auto 25px;
-  }
-
-  /* BUTTON FULL WIDTH */
-  .about-btn{
-    width:100%;
-    padding:14px;
-    font-size:15px;
-  }
-
-  .about-metric{
-    font-size:13px;
-  }
-
-  /* RIGHT CARD MOBILE */
-  .premium-card{
-    width:100%;
-    max-width:100%;
-    padding:30px 22px;
-    border-radius:22px;
-  }
-
-  .card-top h3{
-    font-size:36px;
-  }
-
-  .card-top p{
-    font-size:14px;
-  }
-
-  .card-features div{
-    font-size:14px;
-  }
-
-  .card-bottom{
-    font-size:13px;
-  }
-
-  /* Reduce floating intensity on mobile */
-  .premium-card{
-    animation:floatCardMobile 8s ease-in-out infinite;
-  }
-
-  @keyframes floatCardMobile{
-    0%,100%{ transform:translateY(0px); }
-    50%{ transform:translateY(-6px); }
-  }
-
-  /* Slow border animation for smooth performance */
-  .premium-card::before{
-    animation-duration:8s;
-  }
-
-}
-/* RIGHT CARD */
-.about-right{
-  flex:1;
-  min-width:320px;
-  display:flex;
-  justify-content:center;
-}
-
-/* PREMIUM CARD WITH ANIMATED BORDER */
-.premium-card{
-  position:relative;
-  width:440px;
-  padding:50px;
-  border-radius:30px;
-  background:rgba(255,255,255,0.04);
-  backdrop-filter:blur(25px);
-  overflow:hidden;
-  animation:floatCard 6s ease-in-out infinite;
-}
-
-/* Animated 2-Color Border */
-.premium-card::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  padding:2px;
-  border-radius:30px;
-  background:linear-gradient(270deg,var(--blue),var(--purple),var(--blue));
-  background-size:400% 400%;
-  animation:borderMove 6s linear infinite;
-  -webkit-mask:
-    linear-gradient(#000 0 0) content-box,
-    linear-gradient(#000 0 0);
-  -webkit-mask-composite:xor;
-  mask-composite:exclude;
-  pointer-events:none;
-}
-
-/* Moving Light Sweep Effect */
-.premium-card::after{
-  content:"";
-  position:absolute;
-  top:-50%;
-  left:-50%;
-  width:200%;
-  height:200%;
-  background:linear-gradient(
-    120deg,
-    transparent 40%,
-    rgba(255,255,255,0.08) 50%,
-    transparent 60%
-  );
-  transform:rotate(25deg);
-  animation:lightSweep 5s linear infinite;
-}
-
-/* Floating animation */
-@keyframes floatCard{
-  0%,100%{ transform:translateY(0px); }
-  50%{ transform:translateY(-12px); }
-}
-
-/* Border gradient movement */
-@keyframes borderMove{
-  0%{ background-position:0% 50%; }
-  100%{ background-position:400% 50%; }
-}
-
-/* Light sweep animation */
-@keyframes lightSweep{
-  0%{ transform:translateX(-100%) rotate(25deg); }
-  100%{ transform:translateX(100%) rotate(25deg); }
-}
-
-/* Card Content */
-.card-top h3{
-  font-size:52px;
-  margin-bottom:10px;
-  background:linear-gradient(90deg,var(--blue),var(--purple));
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-
-.card-top p{
-  color:#cbd5e1;
-  font-size:16px;
-}
-
-.card-divider{
-  height:1px;
-  background:rgba(255,255,255,0.15);
-  margin:35px 0;
-}
-
-.card-features div{
-  font-size:15px;
-  margin-bottom:16px;
-  color:#e2e8f0;
-}
-
-.card-bottom{
-  margin-top:35px;
-  font-size:14px;
-  color:#94a3b8;
-}
-</style>
-
-<script>
-document.querySelector(".about-btn").addEventListener("click",function(){
-  const contact = document.getElementById("contact");
-  if(contact){
-    contact.scrollIntoView({behavior:"smooth"});
-  }
-});
-</script>
-<section class="features-section" id="features">
-
-  <div class="features-wrapper">
-
-    <!-- HEADER -->
-    <div class="features-header">
-      <span class="features-tag">Platform Capabilities</span>
-      <h2>Core <span>Intelligence Features</span></h2>
-      <div class="features-line"></div>
-      <p>
-        Rollout AI combines predictive optimisation, permit intelligence,
-        benchmarking and scenario modelling into one unified AI platform
-        for national infrastructure delivery.
-      </p>
-    </div>
-
-    <!-- 3x3 GRID -->
-    <div class="features-grid">
-
-      <!-- CARD 1 -->
-      <div class="feature-card">
-        <img src="ak1.jpeg" alt="">
-        <h4>Predictive Route Optimisation</h4>
-        <p class="short-text">AI ranking rollout paths by cost and time.</p>
-        <p class="more-text">Advanced probability-weighted sequencing engine evaluating disruption risk, permit timing, crew allocation and cost optimisation before deployment.</p>
-        <button class="learn-btn">Learn More</button>
-      </div>
-
-      <!-- CARD 2 -->
-      <div class="feature-card">
-        <img src="akhi2.jpeg" alt="">
-        <h4>Permit Intelligence</h4>
-        <p class="short-text">Live clash detection system.</p>
-        <p class="more-text">Integrated Street Manager and council datasets providing automated permit conflict detection and rejection prevention.</p>
-        <button class="learn-btn">Learn More</button>
-      </div>
-
-      <!-- CARD 3 -->
-      <div class="feature-card">
-        <img src="ak3.jpeg" alt="">
-        <h4>Productivity Benchmarking</h4>
-        <p class="short-text">Subcontractor performance modelling.</p>
-        <p class="more-text">Council-level performance comparison using historical execution data to improve crew allocation and reduce idle time.</p>
-        <button class="learn-btn">Learn More</button>
-      </div>
-
-      <!-- CARD 4 -->
-      <div class="feature-card">
-        <img src="ak4.jpeg" alt="">
-        <h4>Scenario Simulation</h4>
-        <p class="short-text">Multi-region rollout modelling.</p>
-        <p class="more-text">Simulates alternative rollout strategies ranked by cost, time, disruption index and regulatory compliance impact.</p>
-        <button class="learn-btn">Learn More</button>
-      </div>
-
-      <!-- CARD 5 -->
-      <div class="feature-card">
-        <img src="ak5.jpeg" alt="">
-        <h4>Risk Forecasting</h4>
-        <p class="short-text">AI delay prediction engine.</p>
-        <p class="more-text">Machine learning models predicting permit rejections, traffic conflicts, weather disruptions and execution bottlenecks.</p>
-        <button class="learn-btn">Learn More</button>
-      </div>
-
-      <!-- CARD 6 -->
-      <div class="feature-card">
-        <img src="ak6.jpeg" alt="">
-        <h4>Authority Integration</h4>
-        <p class="short-text">350+ UK councils connected.</p>
-        <p class="more-text">Automated integration with authority datasets ensuring compliance, scheduling coordination and reduced rework.</p>
-        <button class="learn-btn">Learn More</button>
-      </div>
-
-      <!-- CARD 7 -->
-      <div class="feature-card">
-        <img src="ak7.jpeg" alt="">
-        <h4>Resource Allocation AI</h4>
-        <p class="short-text">Optimised crew planning.</p>
-        <p class="more-text">Predictive crew distribution models balancing productivity, council restrictions and equipment efficiency.</p>
-        <button class="learn-btn">Learn More</button>
-      </div>
-
-      <!-- CARD 8 -->
-      <div class="feature-card">
-        <img src="ak8.jpeg" alt="">
-        <h4>Data Unification Layer</h4>
-        <p class="short-text">Centralised infrastructure data.</p>
-        <p class="more-text">Combines PIA datasets, permit feeds, GIS layers and contractor benchmarks into one optimisation engine.</p>
-        <button class="learn-btn">Learn More</button>
-      </div>
-
-      <!-- CARD 9 -->
-      <div class="feature-card">
-        <img src="ak9.jpeg" alt="">
-        <h4>Executive Dashboard</h4>
-        <p class="short-text">Programme-wide visibility.</p>
-        <p class="more-text">Real-time performance tracking, disruption scoring and predictive KPI monitoring for national rollout programmes.</p>
-        <button class="learn-btn">Learn More</button>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-<style>
-:root{
-  --blue:#0f62fe;
-  --purple:#5f2eea;
-}
-
-.features-section{
-  padding:160px 0;
-  background:#0e1629;
-  color:#fff;
-}
-
-.features-wrapper{
-  max-width:1200px;
-  margin:auto;
-  padding:0 8%;
-}
-
-.features-header{
-  text-align:center;
-  margin-bottom:70px;
-}
-
-.features-tag{
-  font-size:12px;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  color:#94a3b8;
-}
-
-.features-header h2{
-  font-size:48px;
-  margin:15px 0;
-}
-
-.features-header span{
-  background:linear-gradient(90deg,var(--blue),var(--purple));
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-
-.features-line{
-  width:110px;
-  height:3px;
-  margin:20px auto;
-  background:linear-gradient(90deg,var(--blue),var(--purple));
-  animation:lineMove 3s linear infinite;
-}
-
-@keyframes lineMove{
-  0%{width:40px;}
-  50%{width:150px;}
-  100%{width:40px;}
-}
-
-.features-header p{
-  max-width:650px;
-  margin:auto;
-  font-size:16px;
-  color:#cbd5e1;
-  line-height:1.8;
-}
-
-/* GRID */
-.features-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:30px;
-}
-
-/* CARD */
-.feature-card{
-  background:rgba(255,255,255,0.04);
-  border-radius:20px;
-  padding:20px;
-  border:1px solid rgba(255,255,255,0.08);
-  transition:0.4s;
-}
-
-.feature-card img{
-  width:100%;
-  height:160px;
-  object-fit:cover;
-  border-radius:15px;
-  margin-bottom:15px;
-}
-
-.feature-card h4{
-  font-size:18px;
-  margin-bottom:8px;
-}
-
-.short-text{
-  font-size:14px;
-  color:#cbd5e1;
-}
-
-.more-text{
-  display:none;
-  font-size:14px;
-  margin-top:10px;
-  color:#e2e8f0;
-}
-
-.feature-card.active .more-text{
-  display:block;
-}
-
-.learn-btn{
-  margin-top:12px;
-  padding:8px 18px;
-  background:linear-gradient(90deg,var(--blue),var(--purple));
-  border:none;
-  border-radius:6px;
-  color:#fff;
-  cursor:pointer;
-  font-size:13px;
-}
-
-.feature-card:hover{
-  transform:translateY(-6px);
-  border-color:var(--purple);
-  box-shadow:0 20px 40px rgba(95,46,234,0.25);
-}
-/* ================================= */
-/* FEATURES MOBILE FRIENDLY UPGRADE  */
-/* ================================= */
-
-@media(max-width:768px){
-
-  .features-section{
-    padding:80px 0;
-  }
-
-  .features-wrapper{
-    padding:0 6%;
-  }
-
-  .features-header h2{
-    font-size:26px;
-    line-height:1.4;
-  }
-
-  .features-header p{
-    font-size:15px;
-    line-height:1.6;
-  }
-
-  .features-grid{
-    grid-template-columns:1fr;
-    gap:20px;
-  }
-
-  .feature-card{
-    padding:18px;
-    border-radius:16px;
-  }
-
-  .feature-card img{
-    height:180px;
-    border-radius:14px;
-  }
-
-  .feature-card h4{
-    font-size:17px;
-  }
-
-  .short-text,
-  .more-text{
-    font-size:15px;
-    line-height:1.6;
-  }
-
-  .learn-btn{
-    width:100%;
-    padding:12px;
-    font-size:14px;
-    border-radius:8px;
-  }
-
-}
-
-/* ================================= */
-/* SMOOTHER HOVER FOR TOUCH DEVICES  */
-/* ================================= */
-
-@media(hover:none){
-  .feature-card:hover{
-    transform:none;
-    box-shadow:none;
-  }
-}
-</style>
-
-<script>
-document.querySelectorAll(".learn-btn").forEach(btn=>{
-  btn.addEventListener("click",function(){
-    const card = this.parentElement;
-    card.classList.toggle("active");
-    this.innerText = card.classList.contains("active") ? "Show Less" : "Learn More";
-  });
-});
-</script>
-<section class="process-section" id="process">
-
-  <div class="process-header">
-    <span class="process-tag">ROLL OUT INTELLIGENCE FLOW</span>
-    <h2>Predictive <span>Rollout Engine Process</span></h2>
-     <div class="line"></div>
-    <p>
-      Rollout AI replaces fragmented planning tools with a unified
-      AI-driven Rollout Intelligence Engine (RIE) that predicts,
-      optimises and prevents infrastructure delivery failures.
-    </p>
-  </div>
-
-  <div class="process-scroll">
-
-    <!-- BOX 1 -->
-    <div class="process-card">
-      <div class="emoji">🧩</div>
-      <h3>Unified Data Fusion</h3>
-      <p>
-        Integrates Street Manager feeds, PIA models, council permits
-        and subcontractor performance into one intelligence layer.
-      </p>
-    </div>
-
-    <div class="arrow">➜</div>
-
-    <!-- BOX 2 -->
-    <div class="process-card">
-      <div class="emoji">🧠</div>
-      <h3>Rollout Intelligence Engine (RIE)</h3>
-      <p>
-        Proprietary ML models analyse regulatory constraints,
-        productivity variance and regional delivery behaviour.
-      </p>
-    </div>
-
-    <div class="arrow">➜</div>
-
-    <!-- BOX 3 -->
-    <div class="process-card">
-      <div class="emoji">⚠️</div>
-      <h3>Predictive Risk Forecasting</h3>
-      <p>
-        Forecasts permit delays, cost overruns and resource conflicts
-        before mobilisation begins.
-      </p>
-    </div>
-
-    <div class="arrow">➜</div>
-
-    <!-- BOX 4 -->
-    <div class="process-card">
-      <div class="emoji">📈</div>
-      <h3>Scenario Optimisation</h3>
-      <p>
-        Simulates multi-council rollout plans and ranks them by
-        cost, time and disruption impact.
-      </p>
-    </div>
-
-    <div class="arrow">➜</div>
-
-    <!-- BOX 5 -->
-    <div class="process-card">
-      <div class="emoji">📡</div>
-      <h3>Live Dashboard & Alerts</h3>
-      <p>
-        Real-time field dashboards trigger early warnings
-        and continuous AI learning loops.
-      </p>
-    </div>
-
-  </div>
-<div class="scroll-controls">
-  <button class="scroll-btn left">◀</button>
-  <button class="scroll-btn right">▶</button>
 </div>
-</section>
 
-<style>
-/* SCROLL CONTROLS */
-.scroll-controls{
-  display:flex;
-  justify-content:center;
-  gap:15px;
-  margin-top:30px;
-}
+</div>
 
-.scroll-btn{
-  background:linear-gradient(90deg,var(--blue),var(--purple));
-  border:none;
-  color:#fff;
-  padding:10px 16px;
-  border-radius:8px;
-  cursor:pointer;
-  font-weight:600;
-  transition:0.3s;
-}
 
-.scroll-btn:hover{
-  transform:translateY(-3px);
-  box-shadow:0 10px 20px rgba(95,46,234,0.4);
-}
-:root{
-  --blue:#0f62fe;
-  --purple:#5f2eea;
-}
+<!-- RIGHT IMAGE -->
 
-.process-section{
-  background:#0e1629;
-  padding:160px 6%;
-  color:#fff;
-  overflow:hidden;
-}
+<div class="hero-right">
 
-/* HEADER */
-.process-header{
-  text-align:center;
-  max-width:800px;
-  margin:auto;
-  margin-bottom:80px;
-}
+<img src="hero.jpeg" alt="Rollout AI Dashboard">
 
-.process-tag{
-  font-size:12px;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  color:#94a3b8;
-}
+</div>
 
-.process-header h2{
-  font-size:48px;
-  margin:20px 0;
-}
-
-.process-header span{
-  background:linear-gradient(90deg,var(--blue),var(--purple));
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-
-.process-header p{
-  font-size:18px;
-  color:#cbd5e1;
-  line-height:1.8;
-}
-
-/* SCROLL WRAPPER */
-.process-scroll{
-  display:flex;
-  align-items:center;
-  gap:40px;
-  overflow:hidden;
-}
-
-/* CARD */
-.process-card{
-  min-width:320px;
-  background:rgba(255,255,255,0.05);
-  padding:40px;
-  border-radius:20px;
-  position:relative;
-  backdrop-filter:blur(12px);
-  border:2px solid rgba(255,255,255,0.1);
-  transition:0.4s;
-  overflow:hidden;
-}
-
-/* MOVING BORDER LIGHT */
-.process-card::before{
-  content:"";
-  position:absolute;
-  top:-50%;
-  left:-50%;
-  width:200%;
-  height:200%;
-  background:conic-gradient(
-    transparent,
-    var(--purple),
-    transparent 30%
-  );
-  animation:rotate 4s linear infinite;
-}
-
-.process-card::after{
-  content:"";
-  position:absolute;
-  inset:2px;
-  background:#0e1629;
-  border-radius:18px;
-  z-index:1;
-}
-
-.process-card *{
-  position:relative;
-  z-index:2;
-}
-
-@keyframes rotate{
-  100%{
-    transform:rotate(360deg);
-  }
-}
-
-.process-card:hover{
-  transform:translateY(-10px);
-}
-
-/* EMOJI */
-.emoji{
-  font-size:40px;
-  margin-bottom:20px;
-}
-
-/* ARROW */
-.arrow{
-  font-size:28px;
-  background:linear-gradient(90deg,var(--blue),var(--purple));
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  animation:blink 1.5s infinite;
-}
-
-@keyframes blink{
-  50%{opacity:0.4;}
-}
-/* ================================= */
-/* PROCESS MOBILE + PERFORMANCE FIX  */
-/* ================================= */
-
-@media(max-width:768px){
-
-  .process-section{
-    padding:80px 6%;
-  }
-
-  .process-header h2{
-    font-size:28px;
-    line-height:1.4;
-  }
-
-  .process-header p{
-    font-size:15px;
-    line-height:1.6;
-  }
-
-  .process-scroll{
-    gap:25px;
-    overflow-x:auto;
-    scroll-behavior:smooth;
-    padding-bottom:20px;
-  }
-
-  .process-card{
-    min-width:260px;
-    padding:25px;
-    border-radius:16px;
-  }
-
-  .emoji{
-    font-size:30px;
-    margin-bottom:15px;
-  }
-
-  .arrow{
-    font-size:20px;
-  }
-
-}
-
-/* ================================= */
-/* SMOOTHER BORDER ROTATION          */
-/* ================================= */
-
-.process-card::before{
-  animation-duration:6s; /* slower = premium feel */
-  opacity:0.8;
-}
-
-/* ================================= */
-/* ARROW ALIGNMENT FIX               */
-/* ================================= */
-
-.arrow{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  height:100%;
-  padding:0 10px;
-}
-
-/* ================================= */
-/* HOVER REFINEMENT                  */
-/* ================================= */
-
-.process-card{
-  transition:transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-.process-card:hover{
-  box-shadow:0 20px 50px rgba(95,46,234,0.25);
-}
-
-/* ================================= */
-/* OPTIONAL: SCROLLBAR PREMIUM STYLE */
-/* ================================= */
-
-.process-scroll::-webkit-scrollbar{
-  height:6px;
-}
-
-.process-scroll::-webkit-scrollbar-thumb{
-  background:linear-gradient(90deg,var(--blue),var(--purple));
-  border-radius:10px;
-}
-</style>
-<script>
-document.addEventListener("DOMContentLoaded", function(){
-
-  const scrollContainer = document.querySelector(".process-scroll");
-  const leftBtn = document.querySelector(".scroll-btn.left");
-  const rightBtn = document.querySelector(".scroll-btn.right");
-
-  if(!scrollContainer || !leftBtn || !rightBtn){
-    console.log("Scroll elements not found");
-    return;
-  }
-
-  // ===== BUTTON SCROLL =====
-  rightBtn.addEventListener("click", function(){
-    scrollContainer.scrollBy({
-      left: 300,
-      behavior: "smooth"
-    });
-  });
-
-  leftBtn.addEventListener("click", function(){
-    scrollContainer.scrollBy({
-      left: -300,
-      behavior: "smooth"
-    });
-  });
-
-  // ===== AUTO SCROLL =====
-  let autoScroll = setInterval(function(){
-    if(scrollContainer.scrollLeft >= 
-       scrollContainer.scrollWidth - scrollContainer.clientWidth){
-         scrollContainer.scrollLeft = 0;
-    } else {
-         scrollContainer.scrollLeft += 1;
-    }
-  }, 20);
-
-  // Pause on hover
-  scrollContainer.addEventListener("mouseenter", function(){
-    clearInterval(autoScroll);
-  });
-
-  scrollContainer.addEventListener("mouseleave", function(){
-    autoScroll = setInterval(function(){
-      if(scrollContainer.scrollLeft >= 
-         scrollContainer.scrollWidth - scrollContainer.clientWidth){
-           scrollContainer.scrollLeft = 0;
-      } else {
-           scrollContainer.scrollLeft += 1;
-      }
-    }, 20);
-  });
-
-});
-</script>
-<!-- FOUNDER SECTION -->
-<section class="founder-section" id="founder">
-  <div class="founder-container">
-
-    <h2>Founder <span>Leadership</span></h2>
-    <div class="line"></div>
-
-    <div class="founder-card">
-
-      <div class="founder-content">
-        <h3>Azeem Alogba</h3>
-        <p class="role">Founder & Managing Director – Rollout AI</p>
-
-        <p class="desc">
-          Founder of Rollout AI, leading the strategic vision, product architecture,
-          and commercial execution of the UK-based AI-driven SaaS platform
-          transforming fibre and utilities infrastructure planning.
-        </p>
-
-        <p class="desc">
-          Driving the development of the proprietary Rollout Intelligence Engine (RIE),
-          integrating predictive optimisation, permit intelligence, and productivity-aware
-          AI modelling to reduce delays, prevent cost overruns, and accelerate national
-          infrastructure delivery.
-        </p>
-
-        <div class="founder-highlights">
-          <div class="highlight">
-            <span>AI-Led Vision</span>
-            <p>Architect of predictive rollout optimisation platform for UK infrastructure.</p>
-          </div>
-
-          <div class="highlight">
-            <span>Strategic Execution</span>
-            <p>Oversees product roadmap, partnerships, compliance & commercial growth.</p>
-          </div>
-
-          <div class="highlight">
-            <span>Industry Alignment</span>
-            <p>Focused on accelerating UK fibre & utilities delivery through AI intelligence.</p>
-          </div>
-        </div>
-
-        <button class="founder-btn">Connect with Leadership</button>
-
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-<style>
-:root{
-  --blue:#0f62fe;
-  --purple:#5f2eea;
-}
-
-/* SECTION */
-.founder-section{
-  padding:80px 8%;
-  background:linear-gradient(135deg,#0b1220,#141f3d);
-  color:#fff;
-  text-align:center;
-  overflow:hidden;
-}
-
-.founder-section h2{
-  font-size:34px;
-  margin-bottom:5px;
-}
-
-.founder-section span{
-  background:linear-gradient(90deg,var(--blue),var(--purple));
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-
-/* Animated Line */
-.line{
-  width:120px;
-  height:3px;
-  margin:18px auto 35px;
-  background:linear-gradient(90deg,var(--blue),var(--purple));
-  animation:lineMove 3s linear infinite;
-}
-
-@keyframes lineMove{
-  0%{width:40px;}
-  50%{width:160px;}
-  100%{width:40px;}
-}
-
-/* CARD */
-.founder-card{
-  max-width:900px;
-  margin:auto;
-  padding:40px;
-  border-radius:20px;
-  background:rgba(255,255,255,0.05);
-  backdrop-filter:blur(18px);
-  position:relative;
-  animation:float 6s ease-in-out infinite;
-}
-
-/* moving border light */
-.founder-card::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  padding:1.5px;
-  border-radius:20px;
-  background:linear-gradient(270deg,var(--blue),var(--purple),var(--blue));
-  background-size:400% 400%;
-  animation:borderMove 6s linear infinite;
-  -webkit-mask:
-    linear-gradient(#000 0 0) content-box,
-    linear-gradient(#000 0 0);
-  -webkit-mask-composite:xor;
-  mask-composite:exclude;
-}
-
-@keyframes borderMove{
-  0%{background-position:0% 50%;}
-  100%{background-position:400% 50%;}
-}
-
-@keyframes float{
-  0%,100%{transform:translateY(0);}
-  50%{transform:translateY(-8px);}
-}
-
-.founder-content h3{
-  font-size:26px;
-  margin-bottom:6px;
-}
-
-.role{
-  font-size:14px;
-  color:#cbd5e1;
-  margin-bottom:20px;
-}
-
-.desc{
-  font-size:14px;
-  line-height:1.7;
-  color:#94a3b8;
-  margin-bottom:15px;
-}
-
-/* Highlights Grid */
-.founder-highlights{
-  display:flex;
-  gap:20px;
-  margin-top:25px;
-  flex-wrap:wrap;
-  justify-content:center;
-}
-
-.highlight{
-  flex:1;
-  min-width:220px;
-  padding:18px;
-  border-radius:14px;
-  background:rgba(255,255,255,0.04);
-  transition:0.4s;
-}
-
-.highlight:hover{
-  transform:translateY(-6px);
-  box-shadow:0 15px 30px rgba(95,46,234,0.3);
-}
-
-.highlight span{
-  display:block;
-  font-weight:600;
-  margin-bottom:8px;
-  background:linear-gradient(90deg,var(--blue),var(--purple));
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-
-.highlight p{
-  font-size:13px;
-  color:#cbd5e1;
-}
-
-/* Button */
-.founder-btn{
-  margin-top:30px;
-  padding:12px 28px;
-  border:none;
-  border-radius:30px;
-  background:linear-gradient(90deg,var(--blue),var(--purple));
-  color:#fff;
-  font-weight:600;
-  cursor:pointer;
-  transition:0.4s;
-}
-
-.founder-btn:hover{
-  transform:translateY(-4px);
-  box-shadow:0 10px 25px rgba(95,46,234,0.5);
-}
-/* ================================= */
-/* FOUNDER MOBILE + PREMIUM POLISH  */
-/* ================================= */
-
-@media(max-width:768px){
-
-  .founder-section{
-    padding:60px 6%;
-  }
-
-  .founder-section h2{
-    font-size:24px;
-  }
-
-  .founder-card{
-    padding:25px 20px;
-    border-radius:18px;
-  }
-
-  .founder-content h3{
-    font-size:20px;
-  }
-
-  .role{
-    font-size:13px;
-  }
-
-  .desc{
-    font-size:15px;
-    line-height:1.7;
-  }
-
-  .founder-highlights{
-    gap:15px;
-  }
-
-  .highlight{
-    padding:16px;
-  }
-
-  .highlight p{
-    font-size:14px;
-  }
-
-  .founder-btn{
-    width:100%;
-    padding:14px;
-    border-radius:12px;
-    font-size:15px;
-  }
-
-}
-
-/* ================================= */
-/* SOFTER FLOAT (Professional Look) */
-/* ================================= */
-
-.founder-card{
-  animation:floatSmooth 8s ease-in-out infinite;
-}
-
-@keyframes floatSmooth{
-  0%,100%{transform:translateY(0);}
-  50%{transform:translateY(-5px);}
-}
-
-/* ================================= */
-/* BUTTON PREMIUM LIGHT TRAVEL      */
-/* ================================= */
-
-.founder-btn{
-  position:relative;
-  overflow:hidden;
-}
-
-.founder-btn::before{
-  content:"";
-  position:absolute;
-  top:0;
-  left:-100%;
-  width:100%;
-  height:100%;
-  background:linear-gradient(120deg,transparent,rgba(255,255,255,0.5),transparent);
-}
-
-.founder-btn:hover::before{
-  animation:btnShine 0.8s forwards;
-}
-
-@keyframes btnShine{
-  from{left:-100%;}
-  to{left:100%;}
-}
-
-/* ================================= */
-/* ACTIVE BORDER GLOW SOFTEN        */
-/* ================================= */
-
-.founder-card::before{
-  animation-duration:8s; /* smoother slower rotation */
-  opacity:0.9;
-}
-</style>
-
-<script>
-document.querySelector(".founder-btn").addEventListener("click",function(){
-  const contactSection = document.getElementById("contact");
-  if(contactSection){
-    contactSection.scrollIntoView({behavior:"smooth"});
-  }
-});
-</script>
-
-<section id="faq" class="ai-faq-ultimate">
-
-    <div class="faq-wrapper">
-
-        <div class="faq-header">
-            <h2>Smart <span>Infrastructure FAQs</span></h2>
-            <p>
-                Everything you need to understand how Rollout AI transforms
-                fibre and utilities deployment through predictive intelligence.
-            </p>
-            <div class="heading-line"></div>
-        </div>
-
-        <div class="faq-grid">
-
-            <!-- FAQ ITEM -->
-            <div class="faq-card active">
-                <div class="faq-head">
-                    <h4>What makes Rollout AI predictive?</h4>
-                    <div class="icon">+</div>
-                </div>
-                <div class="faq-body">
-                    Rollout AI leverages machine learning trained on UK permit,
-                    productivity, and infrastructure datasets to forecast risks
-                    before crews are deployed.
-                </div>
-            </div>
-
-            <div class="faq-card">
-                <div class="faq-head">
-                    <h4>How does scenario modelling reduce risk?</h4>
-                    <div class="icon">+</div>
-                </div>
-                <div class="faq-body">
-                    The system simulates multiple rollout strategies and ranks them
-                    by probability of success, cost impact, and disruption levels.
-                </div>
-            </div>
-
-            <div class="faq-card">
-                <div class="faq-head">
-                    <h4>Does it integrate with UK systems?</h4>
-                    <div class="icon">+</div>
-                </div>
-                <div class="faq-body">
-                    Yes. Rollout AI connects with Street Manager, council APIs,
-                    ERP systems, and GIS platforms via secure cloud integrations.
-                </div>
-            </div>
-
-            <div class="faq-card">
-                <div class="faq-head">
-                    <h4>What ROI can operators expect?</h4>
-                    <div class="icon">+</div>
-                </div>
-                <div class="faq-body">
-                    Operators typically see 20–30% faster rollouts, fewer permit
-                    clashes, and measurable cost reductions.
-                </div>
-            </div>
-
-            <div class="faq-card">
-                <div class="faq-head">
-                    <h4>Is the platform secure?</h4>
-                    <div class="icon">+</div>
-                </div>
-                <div class="faq-body">
-                    Built on UK cloud infrastructure with encrypted storage
-                    and GDPR-compliant data handling.
-                </div>
-            </div>
-
-            <div class="faq-card">
-                <div class="faq-head">
-                    <h4>Who is this platform designed for?</h4>
-                    <div class="icon">+</div>
-                </div>
-                <div class="faq-body">
-                    Designed for fibre operators, utilities providers,
-                    civil engineering firms, and local authorities.
-                </div>
-            </div>
-
-        </div>
-
-    </div>
+</div>
 
 </section>
 
-<style>
 
-:root{
-    --blue:#0f62fe;
-    --purple:#5f2eea;
-    --dark:#0b1220;
-    --glass:rgba(255,255,255,0.04);
-}
-
-/* SECTION */
-.ai-faq-ultimate{
-    position:relative;
-    padding:70px 8%;
-    background:linear-gradient(135deg,#0b1220,#0f1c33);
-    color:#fff;
-    overflow:hidden;
-}
-
-/* Background Glow Shapes */
-.ai-faq-ultimate::before,
-.ai-faq-ultimate::after{
-    content:"";
-    position:absolute;
-    width:400px;
-    height:400px;
-    background:radial-gradient(circle,rgba(95,46,234,0.15),transparent 70%);
-    z-index:0;
-}
-
-.ai-faq-ultimate::before{
-    top:-150px;
-    left:-100px;
-}
-
-.ai-faq-ultimate::after{
-    bottom:-150px;
-    right:-100px;
-}
-
-/* HEADER */
-.faq-header{
-    text-align:center;
-    margin-bottom:45px;
-    position:relative;
-    z-index:2;
-}
-
-.faq-header h2{
-    font-size:32px;
-    margin-bottom:12px;
-}
-
-.faq-header span{
-    background:linear-gradient(90deg,var(--blue),var(--purple));
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-}
-
-.faq-header p{
-    font-size:14px;
-    color:#cbd5e1;
-    max-width:600px;
-    margin:auto;
-}
-
-/* Animated Line */
-.heading-line{
-    width:120px;
-    height:3px;
-    margin:18px auto 0;
-    background:linear-gradient(90deg,var(--blue),var(--purple));
-    animation:lineMove 3s linear infinite;
-}
-
-@keyframes lineMove{
-    0%{width:40px;}
-    50%{width:140px;}
-    100%{width:40px;}
-}
-
-/* GRID */
-.faq-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:20px;
-    position:relative;
-    z-index:2;
-}
-
-/* CARD */
-.faq-card{
-    position:relative;
-    background:var(--glass);
-    backdrop-filter:blur(14px);
-    border-radius:12px;
-    padding:18px 20px;
-    cursor:pointer;
-    transition:0.4s;
-    border:1px solid rgba(255,255,255,0.08);
-}
-
-/* Hover */
-.faq-card:hover{
-    transform:translateY(-5px);
-    box-shadow:0 10px 30px rgba(95,46,234,0.3);
-}
-
-/* HEAD */
-.faq-head{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-.faq-head h4{
-    font-size:14px;
-    font-weight:600;
-}
-
-/* ICON */
-.icon{
-    font-size:20px;
-    transition:0.3s;
-}
-
-/* BODY */
-.faq-body{
-    max-height:0;
-    overflow:hidden;
-    font-size:13px;
-    color:#cbd5e1;
-    transition:all 0.4s ease;
-}
-
-/* ACTIVE */
-.faq-card.active{
-    border:1px solid var(--purple);
-}
-
-.faq-card.active .faq-body{
-    max-height:160px;
-    margin-top:10px;
-}
-
-.faq-card.active .icon{
-    transform:rotate(45deg);
-}
-/* ================================= */
-/* FAQ MOBILE + PREMIUM OPTIMIZATION */
-/* ================================= */
-
-@media(max-width:768px){
-
-    .ai-faq-ultimate{
-        padding:60px 6%;
-    }
-
-    .faq-header h2{
-        font-size:22px;
-        line-height:1.4;
-    }
-
-    .faq-header p{
-        font-size:15px;
-        line-height:1.6;
-        padding:0 10px;
-    }
-
-    .faq-grid{
-        grid-template-columns:1fr;
-        gap:16px;
-    }
-
-    .faq-card{
-        padding:16px 18px;
-        border-radius:14px;
-    }
-
-    .faq-head h4{
-        font-size:15px;
-        line-height:1.4;
-        padding-right:10px;
-    }
-
-    .faq-body{
-        font-size:14px;
-        line-height:1.7;
-    }
-
-    .icon{
-        font-size:18px;
-    }
-
-    /* Smooth animation on mobile */
-    .faq-card{
-        transition:all 0.35s ease;
-    }
-
-}
-
-</style>
-
-<script>
-
-const faqCards = document.querySelectorAll(".faq-card");
-
-faqCards.forEach(card=>{
-    card.addEventListener("click",()=>{
-        faqCards.forEach(c=>{
-            if(c !== card){
-                c.classList.remove("active");
-            }
-        });
-        card.classList.toggle("active");
-    });
-});
-
-</script>
-<section id="contact" class="ai-contact">
-
-    <div class="ai-contact-wrapper">
-
-        <!-- LEFT SIDE -->
-        <div class="ai-left">
-            <h2>
-                Power Your <span>Infrastructure Decisions</span>
-            </h2>
-
-            <p>
-                AI-driven rollout optimisation for fibre and utilities.
-                Predict delays. Prevent clashes. Deliver faster.
-            </p>
-
-            <div class="mini-stats">
-                <div class="stat">
-                    <strong>30%</strong>
-                    <span>Faster Delivery</span>
-                </div>
-                <div class="stat">
-                    <strong>350+</strong>
-                    <span>UK Authorities</span>
-                </div>
-                <div class="stat">
-                    <strong>AI</strong>
-                    <span>Predictive Engine</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- RIGHT SIDE -->
-        <div class="ai-right">
-            <div class="ai-card">
-                <h3>Request Executive Demo</h3>
-
-                <button onclick="openMail()" class="ai-btn">
-                    Book Strategic AI Demo
-                </button>
-
-                <small>Secure • Cloud-Based • UK Infrastructure Platform</small>
-            </div>
-        </div>
-
-    </div>
-
-</section>
 
 <style>
 
-:root{
-    --blue:#0f62fe;
-    --purple:#5f2eea;
-    --dark:#0b1220;
-    --card:#111a2e;
-    --text:#cbd5e1;
-}
+/* HERO SECTION */
 
-/* SECTION */
-.ai-contact{
-    padding:70px 8%;
-    background:linear-gradient(135deg,#0b1220,#0f1c33);
-    color:#fff;
-}
-
-/* WRAPPER */
-.ai-contact-wrapper{
-    max-width:1150px;
-    margin:auto;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:50px;
-    flex-wrap:wrap;
-}
-
-/* LEFT */
-.ai-left{
-    flex:1;
-    min-width:280px;
-}
-
-.ai-left h2{
-    font-size:30px;
-    margin-bottom:12px;
-}
-
-.ai-left span{
-    background:linear-gradient(90deg,var(--blue),var(--purple));
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-}
-
-.ai-left p{
-    font-size:14px;
-    color:var(--text);
-    margin-bottom:22px;
-}
-
-/* MINI STATS */
-.mini-stats{
-    display:flex;
-    gap:25px;
-    flex-wrap:wrap;
-}
-
-.stat{
-    background:rgba(255,255,255,0.05);
-    padding:10px 16px;
-    border-radius:6px;
-    border:1px solid rgba(95,46,234,0.3);
-}
-
-.stat strong{
-    display:block;
-    font-size:16px;
-    color:var(--blue);
-}
-
-.stat span{
-    font-size:11px;
-    color:var(--text);
-}
-
-/* RIGHT */
-.ai-right{
-    flex:1;
-    min-width:260px;
-    display:flex;
-    justify-content:center;
-}
-
-/* CARD */
-.ai-card{
-    position:relative;
-    padding:35px 30px;
-    width:100%;
-    max-width:360px;
-    border-radius:14px;
-    background:var(--card);
-    text-align:center;
-    overflow:hidden;
-}
-
-/* 2 COLOR TRAVELLING BORDER */
-.ai-card::before{
-    content:"";
-    position:absolute;
-    inset:-2px;
-    border-radius:16px;
-    background:conic-gradient(
-        from 0deg,
-        var(--blue),
-        var(--purple),
-        var(--blue)
-    );
-    animation:rotateBorder 4s linear infinite;
-    z-index:0;
-}
-
-.ai-card::after{
-    content:"";
-    position:absolute;
-    inset:3px;
-    background:var(--card);
-    border-radius:12px;
-    z-index:1;
-}
-
-@keyframes rotateBorder{
-    0%{transform:rotate(0deg);}
-    100%{transform:rotate(360deg);}
-}
-
-.ai-card h3,
-.ai-card small,
-.ai-btn{
-    position:relative;
-    z-index:2;
-}
-
-.ai-card h3{
-    margin-bottom:18px;
-}
-
-/* BUTTON */
-.ai-btn{
-    width:100%;
-    padding:14px;
-    border:none;
-    background:linear-gradient(90deg,var(--blue),var(--purple));
-    color:#fff;
-    font-weight:600;
-    border-radius:8px;
-    cursor:pointer;
-    transition:0.4s;
-    position:relative;
-    overflow:hidden;
-    animation:floatBtn 3s ease-in-out infinite;
-}
-
-/* Floating button movement */
-@keyframes floatBtn{
-    0%{transform:translateY(0px);}
-    50%{transform:translateY(-4px);}
-    100%{transform:translateY(0px);}
-}
-
-/* Shine sweep */
-.ai-btn::before{
-    content:"";
-    position:absolute;
-    top:0;
-    left:-100%;
-    width:100%;
-    height:100%;
-    background:linear-gradient(120deg,transparent,rgba(255,255,255,0.5),transparent);
-}
-
-.ai-btn:hover::before{
-    animation:shine 0.8s forwards;
-}
-
-@keyframes shine{
-    from{left:-100%;}
-    to{left:100%;}
-}
-
-.ai-btn:hover{
-    box-shadow:0 10px 25px rgba(95,46,234,0.5);
-}
-
-.ai-card small{
-    display:block;
-    margin-top:14px;
-    font-size:11px;
-    color:var(--text);
-}
-/* ================================= */
-/* ADVANCED MOBILE OPTIMIZATION      */
-/* ================================= */
-
-@media(max-width:768px){
-
-    .ai-contact{
-        padding:60px 6%;
-    }
-
-    .ai-contact-wrapper{
-        flex-direction:column;
-        gap:40px;
-        text-align:center;
-    }
-
-    .ai-left h2{
-        font-size:24px;
-        line-height:1.4;
-    }
-
-    .ai-left p{
-        font-size:15px;
-        max-width:320px;
-        margin:auto;
-        line-height:1.7;
-    }
-
-    /* MINI STATS STACK CLEAN */
-    .mini-stats{
-        justify-content:center;
-        gap:15px;
-    }
-
-    .stat{
-        padding:12px 18px;
-        border-radius:8px;
-    }
-
-    .stat strong{
-        font-size:18px;
-    }
-
-    .stat span{
-        font-size:12px;
-    }
-
-    /* CARD MOBILE POLISH */
-    .ai-card{
-        max-width:100%;
-        padding:30px 22px;
-        border-radius:16px;
-    }
-
-    .ai-card h3{
-        font-size:18px;
-    }
-
-    /* BUTTON MOBILE FRIENDLY */
-    .ai-btn{
-        padding:16px;
-        font-size:15px;
-        border-radius:10px;
-    }
-
-    /* Reduce animation intensity on mobile */
-    .ai-btn{
-        animation:floatBtnMobile 4s ease-in-out infinite;
-    }
-
-    @keyframes floatBtnMobile{
-        0%{transform:translateY(0px);}
-        50%{transform:translateY(-2px);}
-        100%{transform:translateY(0px);}
-    }
-
-    /* Make rotating border smoother on mobile */
-    .ai-card::before{
-        animation-duration:6s;
-    }
-
-}
-</style>
-
-<script>
-function openMail(){
-    const subject = encodeURIComponent("Rollout AI – Strategic Demo Request");
-
-    const body = encodeURIComponent(
-`Hello Rollout AI Team,
-
-I would like to request a strategic AI demo for infrastructure rollout optimisation.
-
-Please share available time slots.
-
-Regards`
-    );
-
-    window.location.href =
-        "mailto:rolloutai@outlook.com?subject=" + subject + "&body=" + body;
-}
-</script>
-<footer class="ai-footer">
-
-    <div class="footer-container">
-
-        <!-- LEFT -->
-        <div class="footer-left">
-            <h3>Rollout <span>AI</span></h3>
-            <p>Predictive rollout intelligence for fibre & utilities infrastructure.</p>
-        </div>
-
-        <!-- CENTER -->
-        <div class="footer-links">
-             <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#features">Features</a>
-    <a href="#process">Process</a>
-    <a href="#founder">Founder</a>
-    <a href="#faq">FAQ</a>
-        </div>
-
-        <!-- RIGHT -->
-        <div class="footer-right">
-            <span>UK-Focused SaaS</span>
-            <small>© 2026 Rollout AI. All rights reserved.</small>
-        </div>
-
-    </div>
-
-</footer>
-
-<style>
-
-:root{
-    --blue:#0f62fe;
-    --purple:#5f2eea;
-    --text:#cbd5e1;
-}
-
-/* FOOTER */
-.ai-footer{
-    padding:25px 8%;   /* LESS SPACE */
-    background:linear-gradient(90deg,#0f1c33,#1a1040);
-    color:#fff;
-    position:relative;
-    overflow:hidden;
-}
-
-/* Soft Glow Line Top */
-.ai-footer::before{
-    content:"";
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:2px;
-    background:linear-gradient(90deg,var(--blue),var(--purple));
+.hero-section{
+padding:120px 8%;
+background:white;
+font-family:'Segoe UI',sans-serif;
 }
 
 /* CONTAINER */
-.footer-container{
-    max-width:1150px;
-    margin:auto;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:20px;
-    flex-wrap:wrap;
+
+.hero-container{
+max-width:1200px;
+margin:auto;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:60px;
+align-items:center;
 }
 
 /* LEFT */
-.footer-left h3{
-    font-size:18px;
-    margin-bottom:4px;
+
+.hero-left h1{
+font-size:46px;
+color:#333;
+margin-bottom:20px;
+line-height:1.2;
 }
 
-.footer-left span{
-    background:linear-gradient(90deg,var(--blue),var(--purple));
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
+.hero-text{
+color:#666;
+font-size:17px;
+line-height:1.7;
+margin-bottom:30px;
+max-width:520px;
 }
 
-.footer-left p{
-    font-size:12px;
-    color:var(--text);
+/* BUTTONS */
+
+.hero-buttons{
+display:flex;
+gap:15px;
 }
 
-/* CENTER LINKS */
-.footer-links{
-    display:flex;
-    gap:18px;
+/* PRIMARY */
+
+.btn-primary{
+background:#c06459;
+color:white;
+padding:13px 26px;
+border-radius:6px;
+text-decoration:none;
+font-weight:600;
+transition:0.3s;
 }
 
-.footer-links a{
-    font-size:12px;
-    color:var(--text);
-    text-decoration:none;
-    position:relative;
-    transition:0.3s;
+.btn-primary:hover{
+background:#a5524b;
 }
 
-/* Underline animation */
-.footer-links a::after{
-    content:"";
-    position:absolute;
-    bottom:-3px;
-    left:0;
-    width:0;
-    height:2px;
-    background:linear-gradient(90deg,var(--blue),var(--purple));
-    transition:0.3s;
+/* SECONDARY */
+
+.btn-secondary{
+border:2px solid #c06459;
+color:#c06459;
+padding:13px 26px;
+border-radius:6px;
+text-decoration:none;
+font-weight:600;
+transition:0.3s;
 }
 
-.footer-links a:hover::after{
-    width:100%;
+.btn-secondary:hover{
+background:#c06459;
+color:white;
 }
 
-.footer-links a:hover{
-    color:#fff;
+/* RIGHT IMAGE */
+
+.hero-right img{
+width:100%;
+border-radius:10px;
+box-shadow:0 20px 40px rgba(0,0,0,0.15);
 }
 
-/* RIGHT */
-.footer-right{
-    text-align:right;
+/* MOBILE */
+
+@media(max-width:900px){
+
+.hero-container{
+grid-template-columns:1fr;
+text-align:center;
 }
 
-.footer-right span{
-    font-size:12px;
-    color:var(--purple);
-    display:block;
+.hero-text{
+margin:auto;
 }
 
-.footer-right small{
-    font-size:11px;
-    color:var(--text);
+.hero-buttons{
+justify-content:center;
 }
-/* ============================= */
-/* MOBILE OPTIMIZATION IMPROVED */
-/* ============================= */
 
-@media(max-width:768px){
-
-    .ai-footer{
-        padding:35px 6%;
-    }
-
-    .footer-container{
-        flex-direction:column;
-        align-items:center;
-        text-align:center;
-        gap:25px;
-    }
-
-    .footer-left h3{
-        font-size:20px;
-    }
-
-    .footer-left p{
-        font-size:13px;
-        max-width:280px;
-        margin:auto;
-        line-height:1.6;
-    }
-
-    .footer-links{
-        flex-wrap:wrap;
-        justify-content:center;
-        gap:15px 25px;
-    }
-
-    .footer-links a{
-        font-size:14px;
-        padding:5px 0;
-    }
-
-    .footer-right{
-        text-align:center;
-    }
-
-    .footer-right span{
-        font-size:13px;
-        margin-bottom:5px;
-    }
-
-    .footer-right small{
-        font-size:12px;
-    }
+.hero-right{
+margin-top:30px;
+}
 
 }
 
 </style>
+
+
+
+<script>
+
+/* Smooth Scroll */
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+
+anchor.addEventListener("click", function(e) {
+
+e.preventDefault();
+
+document.querySelector(this.getAttribute("href")).scrollIntoView({
+behavior:"smooth"
+});
+
+});
+
+});
+
+</script>
+<section class="about-section" id="about">
+
+<div class="about-container">
+
+<!-- LEFT CONTENT -->
+
+<div class="about-left">
+
+<h2>About Rollout AI</h2>
+
+<p>
+Rollout AI is a modern technology platform built to help
+businesses plan, launch and manage marketing campaigns
+using intelligent automation. By combining campaign
+deployment, analytics and AI-driven insights, the platform
+simplifies complex marketing operations.
+</p>
+
+<p>
+Organizations can reduce manual work, improve decision
+making and scale their marketing performance through
+data-driven automation tools designed for modern
+digital teams.
+</p>
+
+<div class="about-features">
+
+<div class="feature">AI Campaign Automation</div>
+<div class="feature">Real-Time Marketing Analytics</div>
+<div class="feature">Intelligent Audience Insights</div>
+<div class="feature">Scalable Marketing Infrastructure</div>
+
+</div>
+
+</div>
+
+
+<!-- RIGHT SIDE -->
+
+<div class="about-right">
+
+<div class="founder-box">
+<h3 class="founder-title">Founder</h3>
+<div class="founder-divider"></div>
+
+<p>
+Rollout AI was founded by <strong>Azeem</strong> with the
+vision of transforming how organizations deploy and
+manage marketing campaigns. The platform focuses on
+bringing automation, intelligence and efficiency into
+modern marketing workflows.
+</p>
+
+<a href="#" class="linkedin-btn">LinkedIn</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<style>
+
+/* SECTION */
+
+.about-section{
+padding:140px 8%;
+background:#c06459;
+font-family:'Segoe UI',sans-serif;
+}
+
+/* CONTAINER */
+
+.about-container{
+max-width:1100px;
+margin:auto;
+display:grid;
+grid-template-columns:1.3fr 1fr;
+gap:80px;
+align-items:center;
+}
+
+/* LEFT */
+
+.about-left h2{
+font-size:42px;
+margin-bottom:25px;
+color:white;
+}
+
+.about-left p{
+color:#f3e7e5;
+line-height:1.8;
+margin-bottom:20px;
+font-size:16px;
+max-width:520px;
+}
+
+/* FEATURES */
+
+.about-features{
+margin-top:25px;
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:12px;
+}
+
+.feature{
+background:white;
+color:#333;
+padding:10px 14px;
+border-radius:6px;
+font-size:14px;
+}
+
+/* FOUNDER BOX */
+
+.founder-box{
+background:white;
+padding:35px;
+border-radius:10px;
+box-shadow:0 12px 35px rgba(0,0,0,0.2);
+}
+
+.founder-box h3{
+margin-bottom:10px;
+color:#333;
+}
+
+.founder-box p{
+color:#555;
+line-height:1.7;
+margin-bottom:20px;
+}
+
+/* LINKEDIN BUTTON */
+
+.linkedin-btn{
+display:inline-block;
+padding:10px 18px;
+background:#c06459;
+color:white;
+text-decoration:none;
+border-radius:6px;
+font-weight:600;
+}
+
+.linkedin-btn:hover{
+background:#c06459;
+}
+.founder-title{
+margin-bottom:5px;
+color:#333;
+}
+
+.founder-divider{
+width:60px;
+height:3px;
+background:#c06459;
+margin-bottom:15px;
+border-radius:2px;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.about-container{
+grid-template-columns:1fr;
+text-align:center;
+}
+
+.about-left p{
+margin:auto;
+}
+
+.about-features{
+grid-template-columns:1fr;
+}
+
+}
+
+</style>
+
+
+<script>
+
+console.log("Modern about section loaded");
+
+</script>
+<section class="process-section" id="process">
+
+<div class="process-container">
+
+<h2 class="process-title">How Rollout AI Works</h2>
+
+<p class="process-sub">
+Rollout AI helps infrastructure operators plan and deliver
+large-scale fibre and utility rollout projects using AI
+automation, predictive analytics and intelligent
+deployment coordination tools.
+</p>
+
+
+<div class="process-grid">
+
+<!-- STEP 1 -->
+
+<div class="process-card">
+
+<img src="roll7.jpeg" class="process-img">
+
+<div class="step">01</div>
+
+<h3>Data Integration</h3>
+
+<p>
+Rollout AI integrates multiple infrastructure datasets
+including geospatial mapping, streetworks information,
+traffic data, permit records and contractor productivity
+benchmarks. This unified data foundation allows the
+platform to build a complete picture of rollout conditions
+across regions.
+</p>
+
+</div>
+
+
+<!-- STEP 2 -->
+
+<div class="process-card">
+
+<img src="roll8.jpeg" class="process-img">
+
+<div class="step">02</div>
+
+<h3>AI Planning & Route Optimisation</h3>
+
+<p>
+The platform uses artificial intelligence to analyse the
+integrated datasets and generate optimised rollout routes
+and schedules. Rollout AI identifies the most efficient
+deployment paths while predicting potential risks such as
+permit conflicts, traffic disruption and operational delays.
+</p>
+
+</div>
+
+
+<!-- STEP 3 -->
+
+<div class="process-card">
+
+<img src="roll9.jpeg" class="process-img">
+
+<div class="step">03</div>
+
+<h3>Deployment Coordination</h3>
+
+<p>
+Infrastructure operators, contractors and local authorities
+collaborate through the Rollout AI platform to coordinate
+deployment activities. Teams can manage schedules,
+permit approvals and field operations within a single
+workspace designed for complex rollout programmes.
+</p>
+
+</div>
+
+
+<!-- STEP 4 -->
+
+<div class="process-card">
+
+<img src="roll10.jpeg" class="process-img">
+
+<div class="step">04</div>
+
+<h3>Performance Monitoring</h3>
+
+<p>
+Rollout AI continuously monitors rollout progress using
+real-time analytics dashboards. Operators gain insights
+into project performance, contractor productivity and
+regional deployment status, enabling faster decisions
+and more efficient infrastructure expansion.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<style>
+
+/* SECTION */
+
+.process-section{
+padding:120px 8%;
+background:#faf9f7;
+font-family:'Segoe UI',sans-serif;
+text-align:center;
+}
+
+/* TITLE */
+
+.process-title{
+font-size:36px;
+margin-bottom:10px;
+color:#333;
+}
+
+.process-sub{
+max-width:600px;
+margin:auto;
+margin-bottom:60px;
+color:#666;
+line-height:1.6;
+}
+
+/* GRID */
+
+.process-grid{
+max-width:1100px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:30px;
+}
+
+/* CARD */
+
+.process-card{
+background:white;
+padding:25px;
+border-radius:10px;
+border:1px solid #eee;
+text-align:left;
+transition:0.3s;
+}
+
+.process-card:hover{
+transform:translateY(-6px);
+box-shadow:0 15px 35px rgba(0,0,0,0.1);
+}
+
+/* IMAGE */
+
+.process-img{
+width:100%;
+height:150px;
+object-fit:contain;
+margin-bottom:15px;
+}
+
+/* STEP NUMBER */
+
+.step{
+font-size:13px;
+font-weight:700;
+color:#c06459;
+margin-bottom:8px;
+}
+
+/* TEXT */
+
+.process-card h3{
+margin-bottom:10px;
+}
+
+.process-card p{
+color:#555;
+font-size:14px;
+line-height:1.6;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.process-grid{
+grid-template-columns:1fr;
+}
+
+}
+
+</style>
+
+
+
+<script>
+
+console.log("Rollout AI process section loaded");
+
+</script>
+<section class="platform-section" id="platform">
+
+<div class="platform-container">
+
+<h2 class="platform-title">Platform Capabilities</h2>
+
+<p class="platform-sub">
+Rollout AI provides an intelligent platform designed to optimise
+infrastructure rollout planning.
+</p>
+
+
+<div class="platform-grid">
+
+<!-- CARD 1 -->
+
+<div class="platform-card">
+
+<img src="roll1.jpeg" class="platform-img">
+
+<h3>AI Route Optimisation</h3>
+
+<p class="short-text">
+Automatically optimise rollout routes and schedules.
+</p>
+
+<p class="more-text">
+Rollout AI analyses multiple datasets including streetworks,
+traffic conditions, council restrictions and productivity benchmarks
+to generate the most efficient rollout routes and deployment
+schedules across regions.
+</p>
+
+<button class="learn-btn">Learn More</button>
+
+</div>
+
+
+<!-- CARD 2 -->
+
+<div class="platform-card">
+
+<img src="roll2.jpeg" class="platform-img">
+
+<h3>Predictive Risk Detection</h3>
+
+<p class="short-text">
+Identify rollout risks before they occur.
+</p>
+
+<p class="more-text">
+The AI engine predicts potential delays such as permit conflicts,
+traffic disruptions, contractor bottlenecks and regulatory
+constraints, allowing operators to proactively resolve issues
+before they impact deployment timelines.
+</p>
+
+<button class="learn-btn">Learn More</button>
+
+</div>
+
+
+<!-- CARD 3 -->
+
+<div class="platform-card">
+
+<img src="roll3.jpeg" class="platform-img">
+
+<h3>Permit Intelligence</h3>
+
+<p class="short-text">
+Manage council permits and compliance efficiently.
+</p>
+
+<p class="more-text">
+The platform integrates regulatory data and council permit
+systems to ensure infrastructure projects comply with
+streetworks regulations and approval processes, reducing
+permit rejection rates and administrative delays.
+</p>
+
+<button class="learn-btn">Learn More</button>
+
+</div>
+
+
+<!-- CARD 4 -->
+
+<div class="platform-card">
+
+<img src="roll4.jpeg" class="platform-img">
+
+<h3>Operational Analytics</h3>
+
+<p class="short-text">
+Monitor rollout performance with real-time dashboards.
+</p>
+
+<p class="more-text">
+Rollout AI provides powerful analytics dashboards that track
+project progress, contractor productivity, deployment timelines
+and operational efficiency across regions, helping teams make
+data-driven decisions.
+</p>
+
+<button class="learn-btn">Learn More</button>
+
+</div>
+
+
+<!-- CARD 5 -->
+
+<div class="platform-card">
+
+<img src="roll5.jpeg" class="platform-img">
+
+<h3>Collaborative Planning</h3>
+
+<p class="short-text">
+Coordinate operators, contractors and authorities.
+</p>
+
+<p class="more-text">
+A centralized collaboration workspace allows infrastructure
+operators, subcontractors and local authorities to coordinate
+rollout activities, share data and align planning decisions
+within one unified platform.
+</p>
+
+<button class="learn-btn">Learn More</button>
+
+</div>
+
+
+<!-- CARD 6 -->
+
+<div class="platform-card">
+
+<img src="roll6.jpeg" class="platform-img">
+
+<h3>Data Integration Engine</h3>
+
+<p class="short-text">
+Combine fragmented datasets into one system.
+</p>
+
+<p class="more-text">
+Rollout AI integrates geospatial data, historical productivity
+benchmarks, council permit systems and operational datasets
+into a single AI-powered platform that improves planning
+accuracy and execution certainty.
+</p>
+
+<button class="learn-btn">Learn More</button>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<style>
+
+/* SECTION */
+
+.platform-section{
+padding:120px 8%;
+background:#c06459;
+font-family:'Segoe UI',sans-serif;
+text-align:center;
+color:white;
+}
+
+/* TITLE */
+
+.platform-title{
+font-size:36px;
+margin-bottom:10px;
+}
+
+.platform-sub{
+max-width:600px;
+margin:auto;
+margin-bottom:60px;
+line-height:1.6;
+color:#f5e9e7;
+}
+
+/* GRID */
+
+.platform-grid{
+max-width:1100px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px;
+}
+
+/* CARD */
+
+.platform-card{
+background:white;
+color:#333;
+padding:25px;
+border-radius:10px;
+transition:0.3s;
+text-align:left;
+}
+
+.platform-card:hover{
+transform:translateY(-6px);
+box-shadow:0 15px 35px rgba(0,0,0,0.15);
+}
+
+.platform-img{
+width:100%;
+height:160px;
+object-fit:cover;
+border-radius:8px;
+margin-bottom:15px;
+}
+
+/* TEXT */
+
+.platform-card h3{
+margin-bottom:8px;
+}
+
+.short-text{
+color:#666;
+margin-bottom:10px;
+}
+
+.more-text{
+display:none;
+font-size:14px;
+color:#666;
+line-height:1.6;
+margin-bottom:10px;
+}
+
+/* BUTTON */
+
+.learn-btn{
+background:#c06459;
+color:white;
+border:none;
+padding:10px 18px;
+border-radius:6px;
+cursor:pointer;
+font-weight:600;
+}
+
+.learn-btn:hover{
+background:#a5524b;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.platform-grid{
+grid-template-columns:1fr;
+}
+
+}
+
+</style>
+
+
+<script>
+
+const buttons = document.querySelectorAll(".learn-btn");
+
+buttons.forEach(btn => {
+
+btn.addEventListener("click", function(){
+
+const card = this.parentElement;
+const more = card.querySelector(".more-text");
+
+if(more.style.display === "block"){
+
+more.style.display = "none";
+this.innerText = "Learn More";
+
+}else{
+
+more.style.display = "block";
+this.innerText = "Show Less";
+
+}
+
+});
+
+});
+
+</script>
+<section class="pricing-section" id="pricing">
+
+<div class="pricing-container">
+
+<h2 class="pricing-title">Simple & Flexible Pricing</h2>
+
+<p class="pricing-sub">
+Choose a plan that fits your campaign needs and
+scale your marketing with AI-powered tools.
+</p>
+
+
+<div class="pricing-grid">
+
+<!-- STARTER -->
+
+<div class="pricing-card">
+
+<h3>Starter</h3>
+
+<p class="price">Basic Access</p>
+
+<ul>
+<li>✓ Campaign Creation</li>
+<li>✓ Creator Discovery</li>
+<li>✓ Basic Analytics</li>
+<li>✓ Email Support</li>
+</ul>
+
+<button onclick="goContact()">Get Started</button>
+
+</div>
+
+
+<!-- PRO -->
+
+<div class="pricing-card pro-card">
+
+<div class="pro-badge">Most Popular</div>
+
+<h3>Pro</h3>
+
+<p class="price">Advanced Tools</p>
+
+<ul>
+<li>✓ Everything in Starter</li>
+<li>✓ Advanced Campaign Tools</li>
+<li>✓ AI Campaign Insights</li>
+<li>✓ Priority Support</li>
+</ul>
+
+<button onclick="goContact()">Start Pro</button>
+
+</div>
+
+
+<!-- ENTERPRISE -->
+
+<div class="pricing-card">
+
+<h3>Enterprise</h3>
+
+<p class="price">Custom Solutions</p>
+
+<ul>
+<li>✓ Custom Campaign Strategy</li>
+<li>✓ Advanced Analytics</li>
+<li>✓ Dedicated Support</li>
+<li>✓ Platform Integration</li>
+</ul>
+
+<button onclick="goContact()">Contact Sales</button>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<style>
+
+/* SECTION */
+
+.pricing-section{
+padding:120px 8%;
+background:#faf9f7;
+font-family:'Segoe UI',sans-serif;
+text-align:center;
+}
+
+/* TITLE */
+
+.pricing-title{
+font-size:36px;
+margin-bottom:10px;
+color:#333;
+}
+
+.pricing-sub{
+color:#666;
+margin-bottom:60px;
+}
+
+/* GRID */
+
+.pricing-grid{
+max-width:1100px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:30px;
+}
+
+/* CARD */
+
+.pricing-card{
+background:white;
+padding:40px 30px;
+border-radius:10px;
+border:1px solid #eee;
+transition:0.3s;
+position:relative;
+}
+
+.pricing-card:hover{
+transform:translateY(-6px);
+box-shadow:0 15px 35px rgba(0,0,0,0.1);
+}
+
+/* PRO CARD */
+
+.pro-card{
+border:2px solid #c06459;
+transform:scale(1.05);
+}
+
+/* BADGE */
+
+.pro-badge{
+position:absolute;
+top:-12px;
+left:50%;
+transform:translateX(-50%);
+background:#c06459;
+color:white;
+font-size:12px;
+padding:5px 15px;
+border-radius:20px;
+}
+
+/* PRICE */
+
+.price{
+margin:15px 0 20px;
+font-weight:600;
+color:#c06459;
+}
+
+/* LIST */
+
+.pricing-card ul{
+list-style:none;
+padding:0;
+margin-bottom:25px;
+}
+
+.pricing-card li{
+margin:10px 0;
+color:#555;
+}
+
+/* BUTTON */
+
+.pricing-card button{
+padding:12px 22px;
+border:none;
+background:#c06459;
+color:white;
+border-radius:6px;
+cursor:pointer;
+font-weight:600;
+}
+
+.pricing-card button:hover{
+background:#a5524b;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.pricing-grid{
+grid-template-columns:1fr;
+}
+
+.pro-card{
+transform:none;
+}
+
+}
+
+</style>
+
+
+<script>
+
+function goContact(){
+
+document.getElementById("contact").scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+</script>
+<section class="faq-section" id="faq">
+
+<div class="faq-container">
+
+<h2 class="faq-title">Frequently Asked Questions</h2>
+
+<p class="faq-sub">
+Learn more about the Rollout AI platform, campaign tools
+and how businesses can use AI-driven marketing solutions.
+</p>
+
+
+<div class="faq-list">
+
+<!-- FAQ 1 -->
+
+<div class="faq-item">
+
+<div class="faq-question">
+<span>What is Rollout AI?</span>
+<button class="toggle">+</button>
+</div>
+
+<div class="faq-answer">
+<p>
+Rollout AI is a platform that helps businesses launch
+and manage marketing campaigns using intelligent
+automation and data-driven insights.
+</p>
+</div>
+
+</div>
+
+
+<!-- FAQ 2 -->
+
+<div class="faq-item">
+
+<div class="faq-question">
+<span>Who can use the platform?</span>
+<button class="toggle">+</button>
+</div>
+
+<div class="faq-answer">
+<p>
+Businesses, marketing teams and creators can use
+the platform to collaborate, launch campaigns and
+measure marketing performance.
+</p>
+</div>
+
+</div>
+
+
+<!-- FAQ 3 -->
+
+<div class="faq-item">
+
+<div class="faq-question">
+<span>How does the campaign process work?</span>
+<button class="toggle">+</button>
+</div>
+
+<div class="faq-answer">
+<p>
+Users can create campaigns, discover creators,
+launch collaborations and track results through
+the platform analytics dashboard.
+</p>
+</div>
+
+</div>
+
+
+<!-- FAQ 4 -->
+
+<div class="faq-item">
+
+<div class="faq-question">
+<span>Does the platform provide analytics?</span>
+<button class="toggle">+</button>
+</div>
+
+<div class="faq-answer">
+<p>
+Yes. Rollout AI provides performance analytics,
+campaign insights and audience engagement
+metrics to measure campaign success.
+</p>
+</div>
+
+</div>
+
+
+<!-- FAQ 5 -->
+
+<div class="faq-item">
+
+<div class="faq-question">
+<span>Is the platform suitable for small businesses?</span>
+<button class="toggle">+</button>
+</div>
+
+<div class="faq-answer">
+<p>
+Yes. The platform is designed for both startups
+and established businesses looking to scale
+their marketing campaigns efficiently.
+</p>
+</div>
+
+</div>
+
+
+<!-- FAQ 6 -->
+
+<div class="faq-item">
+
+<div class="faq-question">
+<span>How can I get started?</span>
+<button class="toggle">+</button>
+</div>
+
+<div class="faq-answer">
+<p>
+Simply contact our team through the contact
+form and we will guide you through the
+platform onboarding process.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<style>
+
+/* FAQ SECTION */
+
+.faq-section{
+padding:120px 8%;
+background:#c06459;
+font-family:'Segoe UI',sans-serif;
+}
+
+/* CONTAINER */
+
+.faq-container{
+max-width:900px;
+margin:auto;
+}
+
+/* TITLE */
+
+.faq-title{
+text-align:center;
+color:white;
+font-size:36px;
+margin-bottom:10px;
+}
+
+.faq-sub{
+text-align:center;
+color:#f5e9e7;
+margin-bottom:40px;
+}
+
+/* LIST */
+
+.faq-list{
+display:flex;
+flex-direction:column;
+gap:12px;
+}
+
+/* ITEM */
+
+.faq-item{
+border-bottom:1px solid rgba(255,255,255,0.3);
+padding-bottom:10px;
+}
+
+/* QUESTION */
+
+.faq-question{
+display:flex;
+justify-content:space-between;
+align-items:center;
+cursor:pointer;
+color:white;
+font-size:16px;
+padding:12px 0;
+}
+
+/* BUTTON */
+
+.toggle{
+background:white;
+border:none;
+color:#c06459;
+font-size:18px;
+width:30px;
+height:30px;
+border-radius:4px;
+cursor:pointer;
+}
+
+/* ANSWER */
+
+.faq-answer{
+display:none;
+}
+
+.faq-answer p{
+color:#f5e9e7;
+line-height:1.6;
+padding-bottom:10px;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.faq-title{
+font-size:28px;
+}
+
+}
+
+</style>
+
+
+
+<script>
+
+const questions = document.querySelectorAll(".faq-question");
+
+questions.forEach(q=>{
+
+q.addEventListener("click",()=>{
+
+const answer = q.nextElementSibling;
+const btn = q.querySelector(".toggle");
+
+if(answer.style.display === "block"){
+
+answer.style.display = "none";
+btn.innerHTML = "+";
+
+}else{
+
+document.querySelectorAll(".faq-answer").forEach(a=>{
+a.style.display = "none";
+});
+
+document.querySelectorAll(".toggle").forEach(b=>{
+b.innerHTML = "+";
+});
+
+answer.style.display = "block";
+btn.innerHTML = "−";
+
+}
+
+});
+
+});
+
+</script>
+<section class="contact-section" id="contact">
+
+<div class="contact-container">
+
+<!-- LEFT SIDE -->
+
+<div class="contact-left">
+
+<h2>We are here to help!</h2>
+
+<p class="contact-text">
+Have questions about the Rollout AI platform or want
+to explore how AI can improve your campaign workflows?
+Our team is ready to assist you.
+</p>
+
+<p class="contact-text">
+Contact us to learn more about platform features,
+automation tools and AI-powered campaign management.
+</p>
+
+</div>
+
+
+<!-- RIGHT FORM -->
+
+<div class="contact-right">
+
+<form class="contact-form"
+action="https://api.web3forms.com/submit"
+method="POST">
+
+<!-- ACCESS KEY -->
+
+<input type="hidden" name="access_key" value="9260f24d-5120-46c6-882d-5dfde65aa285">
+
+<input type="text" name="name" placeholder="Name" required>
+
+<input type="email" name="email" placeholder="Email" required>
+
+<input type="tel" name="phone" placeholder="Phone number">
+
+<textarea name="message" rows="4" placeholder="Comment"></textarea>
+
+<button type="submit">SEND MESSAGE</button>
+
+<p class="note">
+Your message will be securely sent to our team.
+</p>
+
+</form>
+
+</div>
+
+</div>
+
+</section>
+
+
+<style>
+
+/* SECTION */
+
+.contact-section{
+padding:120px 8%;
+background:#faf9f7;
+font-family:'Segoe UI',sans-serif;
+}
+
+/* CONTAINER */
+
+.contact-container{
+max-width:1100px;
+margin:auto;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:70px;
+align-items:flex-start;
+}
+
+/* LEFT SIDE */
+
+.contact-left h2{
+font-size:34px;
+color:#333;
+margin-bottom:18px;
+}
+
+.contact-text{
+color:#666;
+line-height:1.8;
+margin-bottom:16px;
+max-width:420px;
+}
+
+/* FORM */
+
+.contact-form{
+display:flex;
+flex-direction:column;
+gap:14px;
+}
+
+/* INPUT */
+
+.contact-form input,
+.contact-form textarea{
+padding:12px;
+border:1px solid #ddd;
+font-size:14px;
+outline:none;
+background:white;
+}
+
+/* BUTTON */
+
+.contact-form button{
+margin-top:10px;
+background:#c06459;
+color:white;
+border:none;
+padding:12px;
+font-weight:600;
+letter-spacing:1px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.contact-form button:hover{
+background:#a5524b;
+}
+
+/* NOTE */
+
+.note{
+font-size:12px;
+color:#888;
+margin-top:10px;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.contact-container{
+grid-template-columns:1fr;
+}
+
+.contact-left{
+text-align:center;
+}
+
+.contact-text{
+margin:auto;
+}
+
+}
+
+</style>
+
+
+<script>
+
+const form = document.querySelector(".contact-form");
+
+form.addEventListener("submit", function(){
+alert("Message Sent Successfully!");
+});
+
+</script>
+
+<footer class="footer">
+
+<div class="footer-container">
+
+<!-- LEFT -->
+
+<div class="footer-left">
+
+<h3>Rollout AI</h3>
+
+<p>
+AI-powered platform helping businesses launch campaigns,
+automate workflows and track performance through
+intelligent analytics.
+</p>
+
+</div>
+
+
+<!-- CENTER -->
+
+<div class="footer-links">
+
+<h4>Platform</h4>
+
+<a href="#home">Home</a>
+<a href="#platform">Platform</a>
+<a href="#process">How It Works</a>
+<a href="#pricing">Pricing</a>
+
+</div>
+
+
+<!-- RIGHT -->
+
+<div class="footer-links">
+
+<h4>Company</h4>
+
+<a href="#about">About</a>
+<a href="#faq">FAQ</a>
+<a href="#contact">Contact</a>
+
+</div>
+
+</div>
+
+
+<!-- BOTTOM -->
+
+<div class="footer-bottom">
+
+<p>© 2026 Rollout AI Platform. All rights reserved.</p>
+
+<button class="top-btn" onclick="scrollTopBtn()">↑</button>
+
+</div>
+
+</footer>
+
+
+<style>
+
+/* FOOTER */
+
+.footer{
+background:#c06459;
+color:white;
+padding:50px 8% 20px;
+font-family:'Segoe UI',sans-serif;
+}
+
+/* CONTAINER */
+
+.footer-container{
+max-width:1100px;
+margin:auto;
+display:grid;
+grid-template-columns:1.5fr 1fr 1fr;
+gap:40px;
+}
+
+/* LEFT */
+
+.footer-left h3{
+margin-bottom:12px;
+}
+
+.footer-left p{
+font-size:14px;
+line-height:1.6;
+color:#f5e9e7;
+}
+
+/* LINKS */
+
+.footer-links{
+display:flex;
+flex-direction:column;
+}
+
+.footer-links h4{
+margin-bottom:10px;
+}
+
+.footer-links a{
+text-decoration:none;
+color:#f5e9e7;
+margin-bottom:6px;
+font-size:14px;
+}
+
+.footer-links a:hover{
+text-decoration:underline;
+}
+
+/* BOTTOM */
+
+.footer-bottom{
+max-width:1100px;
+margin:30px auto 0;
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-top:1px solid rgba(255,255,255,0.2);
+padding-top:15px;
+font-size:13px;
+}
+
+/* TOP BUTTON */
+
+.top-btn{
+background:white;
+color:#c06459;
+border:none;
+width:35px;
+height:35px;
+border-radius:50%;
+cursor:pointer;
+font-size:18px;
+font-weight:bold;
+}
+
+.top-btn:hover{
+background:#eee;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.footer-container{
+grid-template-columns:1fr;
+text-align:center;
+}
+
+.footer-bottom{
+flex-direction:column;
+gap:10px;
+}
+
+}
+
+</style>
+
+
+<script>
+
+function scrollTopBtn(){
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+}
+
+</script>
 
 </body>
 </html>
